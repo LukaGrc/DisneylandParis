@@ -1,0 +1,48 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat','Helvetica','Arial','sans-serif';
+    background-color: #EAEAEA;
+    color: #253b56;
+}
+
+/* BUTTONS */
+
+.btn {
+    background: linear-gradient(73deg, rgb(0, 51, 204), rgb(0, 91, 255));
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.btn:hover {
+    background: linear-gradient(73deg, rgb(0, 91, 255), rgb(0, 51, 204));
+}
+
+/* HERO */
+
+#hero-home h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0em 0em 0.3em #000000;
+}
+
+#hero-home p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-shadow: 0em 0em 0.3em #000000;
+    margin: 0 0 20px 0;
+    padding: 0;
+}
+

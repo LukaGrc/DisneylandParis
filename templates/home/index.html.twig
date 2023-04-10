@@ -1,0 +1,253 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Disneyland Paris - Préparez-vous à rêver encore plus grand !{% endblock %}
+
+{% block body %}
+
+<style>
+#hero-home {
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+}
+#hero-home-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hero-home-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 52px;;
+    padding: 1rem;
+    text-align: center;
+}
+
+.hero-home-logo img {
+    height: 100%;
+}
+.hero-home-content {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.hero-home-hours {
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+    z-index: 10;
+    border-radius: 12px;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+    text-align: center;
+}
+
+.hero-home-hours h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.hero-home-hours p {
+    margin: 0 0 0.5rem 0 !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    text-shadow: none !important;
+}
+
+.hero-home-hours ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hero-home-hours ul li {
+    margin: 0 0 0.5rem 0;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #e5ebfb;
+    border-radius: 7px;
+    display:flex;
+    gap: 10px;
+    align-items: center;
+    text-align: left;
+}
+
+.hero-home-hours ul li .dest-icon {
+    display: block;
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 50%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.hero-home-hours ul li .dest-icon img {
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+#hero-home .divider-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+#hero-home .divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(111% + 1.3px);
+    height: 328px;
+}
+
+#hero-home .divider-bottom .shape-fill {
+    fill: #EAEAEA;
+}
+
+section {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.section-title {
+    display:flex;
+    align-items: baseline;
+}
+
+#destinations {
+    padding: 3rem 0;
+}
+
+#destinations .section-title {
+    margin: 0 0 0 2rem;
+}
+
+#destinations h2 {
+    text-align: left;
+    margin: 0;
+    font-size: 2.4rem;
+}
+
+#destinations p {
+    text-align: left;
+    margin: 0 0 2rem 3rem;
+    font-size: 1em;
+}
+
+#destinations .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#destinations .card {
+    width: calc(100% / 3 - 20px);
+    height: 700px;
+    border-radius: 12px;
+    text-align: center;
+    background-size: cover;
+    background-position: top;
+    overflow: visible;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+#destinations .card .card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(50%);
+}
+</style>
+
+<section id="hero-home">
+    <video autoplay muted loop id="hero-home-video">
+        <source src="{{ asset('/videos/hero-home.mp4') }}" type="video/mp4">
+    </video>
+    <div class="hero-home-logo">
+        <img src="{{ asset('/images/logo/dlp-30.svg') }}" alt="Disneyland Paris" />
+    </div>
+    <div class="hero-home-content">
+        <h1>Entrez dans un monde où l'imagination n'a plus de limite.</h1>
+        <p>À Disneyland Paris, les classiques Disney de votre enfance et les légendes de Star Wars prennent vie ! Évadez-vous au pays des rêves qui deviennent réalité.</p>
+        <a href="" class="btn btn-primary">Réservez vos billets</a>
+    </div>
+    <div class="hero-home-hours">
+        <h3>Horaires d'ouverture</h3>
+        <p>{{ "now"|date("l d F Y") }}</p>
+        <ul>
+            <li>
+                <span class="dest-icon">
+                    <img src="/uploads/destinations/icons/3.png" />
+                </span>
+                <span>
+                    <strong>Parc Disneyland</strong><br/>09:30 à 23:00
+                </span>
+            </li>
+            <li>
+                <span class="dest-icon">
+                    <img src="/uploads/destinations/icons/3.png" />
+                </span>
+                <span>
+                    <strong>Parc Walt Disney Studios</strong><br/>09:30 à 22:00
+                </span>
+            </li>
+            <li>
+                <span class="dest-icon">
+                    <img src="/uploads/destinations/icons/3.png" />
+                </span>
+                <span>
+                    <strong>Disney Village</strong><br/>Ouvert dès 08:00
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="divider-bottom">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M741,116.23C291,117.43,0,27.57,0,6V120H1200V6C1200,27.93,1186.4,119.83,741,116.23Z" class="shape-fill"></path>
+        </svg>
+    </div>
+</section>
+
+<section id="destinations">
+    <div class="section-title">
+        <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
+        <h2>Place au rêve à Disneyland Paris</h2>
+    </div>
+    <p>Découvrez toutes les destinations qui composent notre resort parisien. Faites le plein de magie au sein de nos deux parcs à thème, ainsi qu'au Disney Village.</p>
+    <div class="cards">
+        {% for destination in destinations %}
+            <div class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if destination.image %}{{ destination.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <h3>{{ destination.name }}</h3>
+                <div class="card-body">
+                    <a href="" class="btn btn-primary">Découvrir le {{destination.name}}</a>
+                </div>
+            </div>
+        {% endfor %}    
+    </div>
+</section>
+{% endblock %}
