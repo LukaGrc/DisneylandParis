@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ destination.name }} - Disneyland Paris{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>{{ destination.name }}</h1>
+
+    Lands disponibles pour cette destination :
+    <ul>
+        {% for land in lands %}
+            <li>{{ land.name }}</li>
+        {% endfor %}
+    </ul>
+
+    Attractions disponibles pour cette destination :
+    <ul>
+        {% for attraction in attractions %}
+            <li>{{ attraction.name }}</li>
+        {% endfor %}
+    </ul>
+
+    Restaurants disponibles pour cette destination :
+    <ul>
+        {% for restaurant in restaurants %}
+            <li>{{ restaurant.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

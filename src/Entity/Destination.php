@@ -95,6 +95,17 @@ class Destination
         return $this;
     }
 
+    public function getAttractions() : Collection
+    {
+        $attractions = new ArrayCollection();
+        foreach ($this->lands as $land) {
+            foreach ($land->getAttractions() as $attraction) {
+                $attractions->add($attraction);
+            }
+        }
+        return $attractions;
+    }
+
     /**
      * @return Collection<int, Restaurant>
      */
