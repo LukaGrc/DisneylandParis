@@ -9,6 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
 use App\Entity\Destination;
+use App\Entity\Nouveaute;
+use App\Entity\Hotel;
 
 class HomeController extends AbstractController
 {
@@ -16,7 +18,10 @@ class HomeController extends AbstractController
     public function index(EntityManagerInterface $entityManager): Response
     {
         return $this->render('home/index.html.twig', [
+            'controller_name' => 'HomeController',
             'destinations' => $entityManager->getRepository(Destination::class)->findAll(),
+            'nouveautes' => $entityManager->getRepository(Nouveaute::class)->findAll(),
+            'hotels' => $entityManager->getRepository(Hotel::class)->findAll(),
         ]);
     }
 }

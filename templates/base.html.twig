@@ -19,6 +19,13 @@
         {% endblock %}
     </head>
     <body>
+        <header>
+            {% if (controller_name is not defined) or (controller_name != "HomeController") %}
+                <section id="hero-page">
+                    <p>HEADER PAGE</p>
+                </section>
+            {% endif %}
+        </header>
         <main>
             {% block body %}{% endblock %}
         </main>

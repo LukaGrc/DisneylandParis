@@ -31,6 +31,9 @@ class Land
     #[ORM\OneToMany(mappedBy: 'land', targetEntity: Attraction::class, orphanRemoval: true)]
     private Collection $attractions;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $description = null;
+
     public function __construct()
     {
         $this->restaurants = new ArrayCollection();
@@ -134,6 +137,18 @@ class Land
                 $attraction->setLand(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

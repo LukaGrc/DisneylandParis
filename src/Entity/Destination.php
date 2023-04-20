@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\DestinationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DestinationRepository::class)]
@@ -29,6 +30,15 @@ class Destination
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $icon = null;
+
+    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $hours_opening = null;
+
+    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $hours_closing = null;
 
     public function __construct()
     {
@@ -144,6 +154,42 @@ class Destination
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(?string $icon): self
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function getHoursOpening(): ?\DateTimeInterface
+    {
+        return $this->hours_opening;
+    }
+
+    public function setHoursOpening(?\DateTimeInterface $hours_opening): self
+    {
+        $this->hours_opening = $hours_opening;
+
+        return $this;
+    }
+
+    public function getHoursClosing(): ?\DateTimeInterface
+    {
+        return $this->hours_closing;
+    }
+
+    public function setHoursClosing(?\DateTimeInterface $hours_closing): self
+    {
+        $this->hours_closing = $hours_closing;
 
         return $this;
     }

@@ -5,6 +5,8 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
+use DateTime;
+
 use App\Entity\Destination;
 use App\Entity\Land;
 use App\Entity\Attraction;
@@ -21,31 +23,39 @@ class AppFixtures extends Fixture
 
         $park = new Destination();
         $park->setName('Parc Disneyland')
-            ->setSlug('parc-disneyland');
+            ->setSlug('parc-disneyland')
+            ->setImage('/uploads/destinations/1.jpg')
+            ->setHoursOpening(DateTime::createFromFormat('H:i', '09:30'))
+            ->setHoursClosing(DateTime::createFromFormat('H:i', '23:00'));
 
         $park_msu = new Land();
         $park_msu->setName('Main Street USA')
             ->setSlug('main-street-usa')
+            ->setDescription("Une petite ville typique des États-Unis à l'aube du 20e siècle")
             ->setDestination($park);
 
         $park_disco = new Land();
         $park_disco->setName('Discoveryland')
             ->setSlug('discoveryland')
+            ->setDescription("Rêves d'avenir des temps passé et présent")
             ->setDestination($park);
 
         $park_fant = new Land();
         $park_fant->setName('Fantasyland')
             ->setSlug('fantasyland')
+            ->setDescription("Toute la magie des grands classiques Disney")
             ->setDestination($park);
 
         $park_front = new Land();
         $park_front->setName('Frontierland')
             ->setSlug('frontierland')
+            ->setDescription("La conquète de l'Ouest")
             ->setDestination($park);
 
         $park_adv = new Land();
         $park_adv->setName('Adventureland')
             ->setSlug('adventureland')
+            ->setDescription("Bienvenue dans le monde des explorateurs et des aventuriers")
             ->setDestination($park);
 
 
@@ -53,44 +63,55 @@ class AppFixtures extends Fixture
 
         $studios = new Destination();
         $studios->setName('Parc Walt Disney Studios')
-            ->setSlug('parc-walt-disney-studios');
+            ->setSlug('parc-walt-disney-studios')
+            ->setImage('/uploads/destinations/2.jpg')
+            ->setHoursOpening(DateTime::createFromFormat('H:i', '09:30'))
+            ->setHoursClosing(DateTime::createFromFormat('H:i', '22:00'));
 
         $studios_front = new Land();
         $studios_front->setName('Front Lot')
             ->setSlug('front-lot')
+            ->setDescription("L'évocation de l'entrée des grands studios de cinéma")
             ->setDestination($studios);
 
         $studios_toon = new Land();
         $studios_toon->setName('Toon Studio')
             ->setSlug('toon-studio')
+            ->setDescription("Là ou les toons prennent vie")
             ->setDestination($studios);
         
         $studios_toy = new Land();
         $studios_toy->setName('Toy Story Playland')
             ->setSlug('toy-story-playland')
+            ->setDescription("Un univers surdimmensionné où vous vous retrouvez à la taille d'un jouet !")
             ->setDestination($studios);
 
         $studios_pixar = new Land();
         $studios_pixar->setName('World of Pixar')
             ->setSlug('world-of-pixar')
+            ->setDescription("Là où les différents mondes de Pixar prennent vie")
             ->setDestination($studios);
 
         $studios_prod = new Land();
         $studios_prod->setName('Production Courtyard')
             ->setSlug('production-courtyard')
+            ->setDescription("Les merveilles du cinémaet de la télévision")
             ->setDestination($studios);
 
         $studios_avengers = new Land();
         $studios_avengers->setName('Avengers Campus')
             ->setSlug('avengers-campus')
+            ->setDescription("Préparez vous pour le rassemblement")
             ->setDestination($studios);
 
         
         // DISNEY VILLAGE
 
         $village = new Destination();
-        $village->setName('Disney Village');
-        $village->setSlug('disney-village');
+        $village->setName('Disney Village')
+            ->setSlug('disney-village')
+            ->setImage('/uploads/destinations/3.jpg')
+            ->setHoursOpening(DateTime::createFromFormat('H:i', '08:00'));
 
 
         // DISNEY HOTELS
@@ -154,14 +175,41 @@ class AppFixtures extends Fixture
 
         // ATTRACTIONS (Not exhaustive)
 
+        $buzz = new Attraction();
+        $buzz->setName('Buzz Lightyear Laser Blast')
+            ->setSlug('buzz-lightyear-laser-blast')
+            ->setLand($park_disco)
+            ->setCategory($cat_famille)
+            ->setPremieraccessPrice(12.0)
+            ->setIdApi(0);
+
+        $orbi = new Attraction();
+        $orbi->setName('Orbitron')
+            ->setSlug('orbitron')
+            ->setLand($park_disco)
+            ->setCategory($cat_petits)
+            ->setPremieraccessPrice(5.0)
+            ->setIdApi(0);
+
         $space_mtn = new Attraction();
         $space_mtn->setName('Star Wars Hyper Space Mountain')
             ->setSlug('hyper-space-mountain')
             ->setLand($park_disco)
             ->setCategory($cat_frissons)
             ->setMinHeight(120)
-            ->setPremieraccessPrice(0.0)
-            ->setIdApi(1);
+            ->setPremieraccessPrice(18.0)
+            ->setIdApi(0)
+            ->setIdApiSingleRider(0);
+
+        $autopia = new Attraction();
+        $autopia->setName('Autopia')
+            ->setSlug('autopia')
+            ->setLand($park_disco)
+            ->setCategory($cat_famille)
+            ->setMinHeight(90)
+            ->setPremieraccessPrice(9.0)
+            ->setIdApi(0);
+        
 
         // RESTAURANTS (Not exhaustive)
 
@@ -208,7 +256,11 @@ class AppFixtures extends Fixture
         $manager->persist($cat_famille);
         $manager->persist($cat_petits);
 
+        $manager->persist($buzz);
+        $manager->persist($orbi);
         $manager->persist($space_mtn);
+        $manager->persist($autopia);
+
 
         $manager->persist($bella_notte);
 

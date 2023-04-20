@@ -14,7 +14,7 @@
     Lands disponibles pour cette destination :
     <ul>
         {% for land in lands %}
-            <li>{{ land.name }}</li>
+            <li><a href="/destinations/{{ destination.slug }}/{{ land.slug }}">{{ land.name }}</a></li>
         {% endfor %}
     </ul>
 
