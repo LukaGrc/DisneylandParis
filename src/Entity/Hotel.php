@@ -33,9 +33,17 @@ class Hotel
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Hotelroom::class, orphanRemoval: true)]
+    private Collection $rooms;
+
+    #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: HotelRoomType::class, orphanRemoval: true)]
+    private Collection $RoomTypes;
+
     public function __construct()
     {
         $this->restaurants = new ArrayCollection();
+        $this->rooms = new ArrayCollection();
+        $this->RoomTypes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -134,6 +142,66 @@ class Hotel
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Hotelroom>
+     */
+    public function getRooms(): Collection
+    {
+        return $this->rooms;
+    }
+
+    public function addRoom(Hotelroom $room): self
+    {
+        if (!$this->rooms->contains($room)) {
+            $this->rooms->add($room);
+            $room->setHotel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRoom(Hotelroom $room): self
+    {
+        if ($this->rooms->removeElement($room)) {
+            // set the owning side to null (unless already changed)
+            if ($room->getHotel() === $this) {
+                $room->setHotel(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, HotelRoomType>
+     */
+    public function getRoomTypes(): Collection
+    {
+        return $this->RoomTypes;
+    }
+
+    public function addRoomType(HotelRoomType $roomType): self
+    {
+        if (!$this->RoomTypes->contains($roomType)) {
+            $this->RoomTypes->add($roomType);
+            $roomType->setHotel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRoomType(HotelRoomType $roomType): self
+    {
+        if ($this->RoomTypes->removeElement($roomType)) {
+            // set the owning side to null (unless already changed)
+            if ($roomType->getHotel() === $this) {
+                $roomType->setHotel(null);
+            }
+        }
 
         return $this;
     }
