@@ -21,7 +21,7 @@
     Attractions disponibles pour cette destination :
     <ul>
         {% for attraction in attractions %}
-            <li>{{ attraction.name }}</li>
+            <li><a href="/attractions/{{ destination.slug }}/{{ attraction.slug }}">{{ attraction.name }}</a></li>
         {% endfor %}
     </ul>
 

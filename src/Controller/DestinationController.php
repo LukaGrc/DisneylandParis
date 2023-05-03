@@ -51,7 +51,6 @@ class DestinationController extends AbstractController
         if ($land === null || $land->getDestination()->getId() != $destination->getId()) throw new NotFoundHttpException('Land was not found'); // This should activate the 404-page
 
         return $this->render('destination/land.html.twig', [
-            'controller_name' => 'DestinationController',
             'destination' => $destination,
             'land' => $land,
             'attractions' => $land->getAttractions(),
