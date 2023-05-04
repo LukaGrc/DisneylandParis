@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Destinations de rêve à Disneyland Paris{% endblock %}
+
+{% block body %}
+
+<h1 class="page-title">Destinations de rêve à Disneyland Paris</h1>
+
+<ul>
+    {% for destination in destinations %}
+        <li><a href="/destinations/{{ destination.slug }}">{{ destination.name }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

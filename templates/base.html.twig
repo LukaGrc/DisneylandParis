@@ -21,8 +21,23 @@
     <body>
         <header>
             {% if (controller_name is not defined) or (controller_name != "HomeController") %}
-                <section id="hero-page">
-                    <p>HEADER PAGE</p>
+                <section id="hero-page" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.5) 100%),url({% if topimg is defined and topimg %}{{ topimg }}{% else %}/images/default-bg.jpg{% endif %})">
+                    <div class="hero-topbar">
+                        <a href="/"><img src="{{ asset('/images/logo/dlp-30.svg') }}" alt="Disneyland Paris" /></a>
+                        <div class="hero-topbar-menu">
+                            <ul>
+                                <li><a href="/">Accueil</a></li>
+                                <li><a href="/destinations">Destinations</a></li>
+                                <li><a href="/hotels">Hôtels</a></li>
+                                <li><a href="/billetterie">Billetterie</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="divider-bottom">
+                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                            <path d="M741,116.23C291,117.43,0,27.57,0,6V120H1200V6C1200,27.93,1186.4,119.83,741,116.23Z" class="shape-fill"></path>
+                        </svg>
+                    </div>
                 </section>
             {% endif %}
         </header>

@@ -1,1 +1,25 @@
-{{ land.name }}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ land.name }} dans le {{ destination.name }}{% endblock %}
+
+{% block body %}
+
+<h1 class="page-title">{{ land.name }} dans le {{ destination.name }}</h1>
+
+<p>Attractions :</p>
+
+<ul>
+    {% for attraction in attractions %}
+        <li><a href="/attractions/{{ destination.slug }}/{{ attraction.slug }}">{{ attraction.name }}</a></li>
+    {% endfor %}
+</ul>
+
+<p>Restaurants :</p>
+
+<ul>
+    {% for restaurant in restaurants %}
+        <li>{{ restaurant.name }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

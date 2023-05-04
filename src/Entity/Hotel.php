@@ -33,11 +33,14 @@ class Hotel
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Hotelroom::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: HotelRoom::class, orphanRemoval: true)]
     private Collection $rooms;
 
     #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: HotelRoomType::class, orphanRemoval: true)]
     private Collection $RoomTypes;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $banner = null;
 
     public function __construct()
     {
@@ -147,14 +150,14 @@ class Hotel
     }
 
     /**
-     * @return Collection<int, Hotelroom>
+     * @return Collection<int, HotelRoom>
      */
     public function getRooms(): Collection
     {
         return $this->rooms;
     }
 
-    public function addRoom(Hotelroom $room): self
+    public function addRoom(HotelRoom $room): self
     {
         if (!$this->rooms->contains($room)) {
             $this->rooms->add($room);
@@ -164,7 +167,7 @@ class Hotel
         return $this;
     }
 
-    public function removeRoom(Hotelroom $room): self
+    public function removeRoom(HotelRoom $room): self
     {
         if ($this->rooms->removeElement($room)) {
             // set the owning side to null (unless already changed)
@@ -202,6 +205,18 @@ class Hotel
                 $roomType->setHotel(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getBanner(): ?string
+    {
+        return $this->banner;
+    }
+
+    public function setBanner(?string $banner): self
+    {
+        $this->banner = $banner;
 
         return $this;
     }

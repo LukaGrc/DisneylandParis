@@ -32,7 +32,9 @@ class HotelController extends AbstractController
         if ($hotel === null) throw new NotFoundHttpException('Hotel was not found'); // This should activate the 404-page
 
         return $this->render('hotel/hotel.html.twig', [
+            'topimg' => $hotel->getBanner(),
             'hotel' => $hotel,
+            'restaurants' => $hotel->getRestaurants(),
         ]);
     }
 }

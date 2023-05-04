@@ -40,6 +40,9 @@ class Destination
     #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $hours_closing = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $banner = null;
+
     public function __construct()
     {
         $this->lands = new ArrayCollection();
@@ -190,6 +193,18 @@ class Destination
     public function setHoursClosing(?\DateTimeInterface $hours_closing): self
     {
         $this->hours_closing = $hours_closing;
+
+        return $this;
+    }
+
+    public function getBanner(): ?string
+    {
+        return $this->banner;
+    }
+
+    public function setBanner(?string $banner): self
+    {
+        $this->banner = $banner;
 
         return $this;
     }

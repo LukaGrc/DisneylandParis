@@ -8,8 +8,16 @@
     <video autoplay muted loop id="hero-home-video">
         <source src="{{ asset('/videos/hero-home.mp4') }}" type="video/mp4">
     </video>
-    <div class="hero-home-logo">
-        <img src="{{ asset('/images/logo/dlp-30.svg') }}" alt="Disneyland Paris" />
+    <div class="hero-topbar">
+        <a href="/"><img src="{{ asset('/images/logo/dlp-30.svg') }}" alt="Disneyland Paris" /></a>
+        <div class="hero-topbar-menu">
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/destinations">Destinations</a></li>
+                <li><a href="/hotels">Hôtels</a></li>
+                <li><a href="/billetterie">Billetterie</a></li>
+            </ul>
+        </div>
     </div>
     <div class="hero-home-content">
         <h1>Bienvenue à Disneyland Paris</h1>

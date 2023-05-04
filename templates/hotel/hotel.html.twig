@@ -1,1 +1,25 @@
-{{ hotel.name }}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ hotel.name }} - Hôtel à Disneyland Paris{% endblock %}
+
+{% block body %}
+
+<h1 class="page-title">{{ hotel.name }}</h1>
+
+<p>Types de chambres disponibles</p>
+
+<ul>
+    {% for roomtype in hotel.roomtypes %}
+        <li>{{ roomtype.name }}</li>
+    {% endfor %}
+</ul>
+
+<p>Restaurants :</p>
+
+<ul>
+    {% for restaurant in restaurants %}
+        <li>{{ restaurant.name }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

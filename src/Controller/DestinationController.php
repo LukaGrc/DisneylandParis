@@ -16,10 +16,14 @@ use App\Entity\Land;
 class DestinationController extends AbstractController
 {
     #[Route('/destinations', name: 'app_destinations')]
-    public function index(): Response
+    public function index(EntityManagerInterface $entityManager): Response
     {
+        $repository = $entityManager->getRepository(Destination::class);
+        $destinations = $repository->findAll();
+
         return $this->render('destination/index.html.twig', [
             'controller_name' => 'DestinationController',
+            'destinations' => $destinations,
         ]);
     }
 
@@ -32,6 +36,7 @@ class DestinationController extends AbstractController
 
         return $this->render('destination/destination.html.twig', [
             'controller_name' => 'DestinationController',
+            'topimg' => $destination->getBanner(),
             'destination' => $destination,
             'lands' => $destination->getLands(),
             'attractions' => $destination->getAttractions(),

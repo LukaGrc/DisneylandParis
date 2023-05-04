@@ -34,6 +34,12 @@ class HotelRoomType
     #[ORM\OneToMany(mappedBy: 'type', targetEntity: HotelRoom::class)]
     private Collection $rooms;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $capacity = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?float $price = null;
+
     public function __construct()
     {
         $this->Stuffs = new ArrayCollection();
@@ -146,6 +152,30 @@ class HotelRoomType
                 $room->setType(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCapacity(): ?int
+    {
+        return $this->capacity;
+    }
+
+    public function setCapacity(?int $capacity): self
+    {
+        $this->capacity = $capacity;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }
