@@ -12,6 +12,7 @@ class AttractionCategoryFixtures extends Fixture
     public const CAT_FRIS_REFERENCE = 'cat-fris';
     public const CAT_FAM_REFERENCE = 'cat-fam';
     public const CAT_PET_REFERENCE = 'cat-pet';
+    public const CAT_REN_REFERENCE = 'cat-ren';
     public const CAT_NON_REFERENCE = 'cat-non';
 
     public function load(ObjectManager $manager): void
@@ -28,6 +29,10 @@ class AttractionCategoryFixtures extends Fixture
         $cat_petits->setName('Avec les plus petits')
             ->setSlug('avec-les-plus-petits');
 
+        $cat_rencontres = new AttractionCategory();
+        $cat_rencontres->setName('Rencontres personnages')
+            ->setSlug('rencontres-personnages');
+
         $cat_non = new AttractionCategory();
         $cat_non->setName('Non classé')
             ->setSlug('non-classe');
@@ -36,12 +41,14 @@ class AttractionCategoryFixtures extends Fixture
         $manager->persist($cat_frissons);
         $manager->persist($cat_famille);
         $manager->persist($cat_petits);
+        $manager->persist($cat_rencontres);
         $manager->persist($cat_non);
         $manager->flush();
 
         $this->addReference(self::CAT_FRIS_REFERENCE, $cat_frissons);
         $this->addReference(self::CAT_FAM_REFERENCE, $cat_famille);
         $this->addReference(self::CAT_PET_REFERENCE, $cat_petits);
+        $this->addReference(self::CAT_REN_REFERENCE, $cat_rencontres);
         $this->addReference(self::CAT_NON_REFERENCE, $cat_non);
     }
 }
