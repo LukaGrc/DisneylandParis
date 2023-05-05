@@ -21,6 +21,7 @@ class HotelController extends AbstractController
 
         return $this->render('hotel/index.html.twig', [
             'hotels' => $hotels,
+            'topimg' => '/uploads/banners/hotels/all.jpg',
         ]);
     }
 
@@ -28,13 +29,25 @@ class HotelController extends AbstractController
     public function show(string $slug, EntityManagerInterface $entityManager): Response
     {
         $repository = $entityManager->getRepository(Hotel::class);
-        $hotel = $repository->findOneBy(['slug' => $slug]);
+
+        $hotels = $repository->findAll();
+        $hotel = null;
+        $other_hotels = [];
+        foreach ($hotels as $hotell) {
+            if ($hotell->getSlug() == $slug) {
+                $hotel = $hotell;
+            } else {
+                array_push($other_hotels, $hotell);
+            }
+        }
+
         if ($hotel === null) throw new NotFoundHttpException('Hotel was not found'); // This should activate the 404-page
 
         return $this->render('hotel/hotel.html.twig', [
             'topimg' => $hotel->getBanner(),
             'hotel' => $hotel,
             'restaurants' => $hotel->getRestaurants(),
+            'other_hotels' => $other_hotels,
         ]);
     }
 }

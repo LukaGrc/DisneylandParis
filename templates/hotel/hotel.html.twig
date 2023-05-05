@@ -22,4 +22,12 @@
     {% endfor %}
 </ul>
 
+<p>Nos autres Hôtels :</p>
+
+<ul>
+    {% for other_hotel in other_hotels %}
+        <li><a href="/hotels/{{ other_hotel.slug }}">{{ other_hotel.name }}</a></li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

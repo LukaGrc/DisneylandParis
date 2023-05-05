@@ -6,28 +6,44 @@
 
 <h1 class="page-title">{{ destination.name }}</h1>
 
-<p>Lands :</p>
+{% if lands is not empty %}
+    <p>Lands :</p>
 
-<ul>
-    {% for land in lands %}
-        <li><a href="/destinations/{{ destination.slug }}/{{ land.slug }}">{{ land.name }}</a></li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for land in lands %}
+            <li><a href="/destinations/{{ destination.slug }}/{{ land.slug }}">{{ land.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
-<p>Attractions :</p>
+{% if attractions is not empty %}
+    <p>Attractions :</p>
 
-<ul>
-    {% for attraction in attractions %}
-        <li><a href="/attractions/{{ destination.slug }}/{{ attraction.slug }}">{{ attraction.name }}</a></li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for attraction in attractions %}
+            <li><a href="/attractions/{{ destination.slug }}/{{ attraction.slug }}">{{ attraction.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
-<p>Restaurants :</p>
+{% if restaurants is not empty %}
+    <p>Restaurants :</p>
 
-<ul>
-    {% for restaurant in restaurants %}
-        <li>{{ restaurant.name }}</li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for restaurant in restaurants %}
+            <li><a href="/restaurants/{{ restaurant.slug }}">{{ restaurant.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if other_destinations is not empty %}
+    <p>Nos autres destinations</p>
+
+    <ul>
+        {% for other_destination in other_destinations %}
+            <li><a href="/destinations/{{ other_destination.slug }}">{{ other_destination.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 {% endblock %}

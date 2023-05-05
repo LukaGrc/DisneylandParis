@@ -23,6 +23,7 @@ class DestinationController extends AbstractController
 
         return $this->render('destination/index.html.twig', [
             'controller_name' => 'DestinationController',
+            'topimg' => '/uploads/banners/destinations/all.jpg',
             'destinations' => $destinations,
         ]);
     }
@@ -31,7 +32,20 @@ class DestinationController extends AbstractController
     public function destination(string $slug, EntityManagerInterface $entityManager): Response
     {
         $repository = $entityManager->getRepository(Destination::class);
-        $destination = $repository->findOneBy(['slug' => $slug]);
+        //$destination = $repository->findOneBy(['slug' => $slug]);
+
+        $destinations = $repository->findAll();
+        $destination = null;
+        $other_destinations = [];
+        foreach ($destinations as $dest) {
+            if ($dest->getSlug() == $slug) {
+                $destination = $dest;
+            } else {
+                array_push($other_destinations, $dest);
+            }
+        }
+        
+
         if ($destination === null) throw new NotFoundHttpException('Destination was not found'); // This should activate the 404-page
 
         return $this->render('destination/destination.html.twig', [
@@ -41,6 +55,7 @@ class DestinationController extends AbstractController
             'lands' => $destination->getLands(),
             'attractions' => $destination->getAttractions(),
             'restaurants' => $destination->getRestaurants(),
+            'other_destinations' => $other_destinations,
         ]);
     }
 

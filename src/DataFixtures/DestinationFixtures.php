@@ -39,6 +39,7 @@ class DestinationFixtures extends Fixture
         $village->setName('Disney Village')
             ->setSlug('disney-village')
             ->setImage('/uploads/destinations/3.jpg')
+            ->setBanner('/uploads/banners/destinations/3.jpg')
             ->setHoursOpening(DateTime::createFromFormat('H:i', '08:00'));
 
         $manager->persist($park);
