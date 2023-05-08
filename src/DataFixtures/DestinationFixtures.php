@@ -25,6 +25,7 @@ class DestinationFixtures extends Fixture
             ->setDescription("Dans le Parc Disneyland, les classiques Disney de votre enfance et les légendes de Star Wars prennent vie ! Évadez-vous au pays des rêves qui deviennent réalité.")
             ->setImage('/uploads/destinations/image-1.jpg')
             ->setBanner('/uploads/destinations/banner-1.jpg')
+            ->setIcon('/uploads/destinations/icon-1.png')
             ->setHoursOpening(DateTime::createFromFormat('H:i', '09:30'))
             ->setHoursClosing(DateTime::createFromFormat('H:i', '23:00'));
 
@@ -34,6 +35,7 @@ class DestinationFixtures extends Fixture
             ->setDescription("Des mondes colorés de Disney-Pixar aux missions héroïques d'Avengers Campus, les fans de tous âges sont appelés à embarquer immédiatement au cœur de l’action !")
             ->setImage('/uploads/destinations/image-2.jpg')
             ->setBanner('/uploads/destinations/banner-2.jpg')
+            ->setIcon('/uploads/destinations/icon-2.png')
             ->setHoursOpening(DateTime::createFromFormat('H:i', '09:30'))
             ->setHoursClosing(DateTime::createFromFormat('H:i', '22:00'));
 

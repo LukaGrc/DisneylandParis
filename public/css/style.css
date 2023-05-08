@@ -388,9 +388,11 @@ section#hero-home, section#hero-page {
     color: #fff;
     font-size: 1.8rem;
     display: flex;
-    align-items: self-end;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
     text-decoration: none;
+    padding-bottom: 10px;
 }
 
 #hotels .card:first-child {
@@ -409,6 +411,16 @@ section#hero-home, section#hero-page {
 
 #hotels .card:nth-child(5), #hotels .card:nth-child(6) {
     width: calc(100% / 2 - 7px);
+}
+
+#hotels .card h3, #hotels .card p {
+    margin: 0;
+    padding: 0;
+}
+
+#hotels .card p {
+    font-size: 1.2rem;
+    color: #90918f;
 }
 
 

@@ -4,6 +4,8 @@
 
 - I. Présentation du projet
 - II. Fonctionnalités
+---
+A REFAIRE
 - III. Installation avec Docker
     - A. Prérequis
     - B. Récupération du projet
@@ -13,7 +15,10 @@
     - B. Récupération du projet
     - C. Initialisation base de données
     - D. Lancement du projet
+---
 - V. Documentation technique
+    - A. Disclaimer
+    - B. Administrateur par défaut
 - VI. Crédits & remerciements
 
 ## I. Présentation du projet
@@ -114,7 +119,16 @@ symfony server:start
 
 ## V. Documentation technique
 
-**DISCLAIMER :** Le fichier `.env` a été push sur le répository public pour les biens de l'exercice, dans une optique de limiter les modification et actions nécessaires pour lancer l'app. **Il est évident que dans le cadre d'un vrai projet, il ne faut SURTOUT PAS push ce fichier**
+### A. Disclaimer
+
+Le fichier `.env` a été push sur le répository public pour les biens de l'exercice, dans une optique de limiter les modification et actions nécessaires pour lancer l'app. **Il est évident que dans le cadre d'un vrai projet, il ne faut SURTOUT PAS push ce fichier**
+
+### B. Administrateur par défaut
+
+Un utilisateur administrateur est défini par défaut avec les identifiants suivants :
+
+- Email : `admin@disneylandparis.com`
+- Mot de passe : `admin123`
 
 
 ## VI. Crédits & remerciements

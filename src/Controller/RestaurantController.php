@@ -31,7 +31,7 @@ class RestaurantController extends AbstractController
         return $this->render('restaurant/index.html.twig', [
             'destinations' => $destinations,
             'hotels' => $hotels,
-            'topimg' => '/upload/restaurants/banner-all.jpg',
+            'topimg' => '/uploads/restaurants/banner-all.jpg',
         ]);
     }
 
