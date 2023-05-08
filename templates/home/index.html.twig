@@ -13,8 +13,9 @@
         <div class="hero-topbar-menu">
             <ul>
                 <li><a href="/">Accueil</a></li>
-                <li><a href="/destinations">Destinations</a></li>
+                <li><a href="/destinations">Nos parcs</a></li>
                 <li><a href="/hotels">Hôtels</a></li>
+                <li><a href="/restaurants">Restaurants</a></li>
                 <li><a href="/billetterie">Billetterie</a></li>
             </ul>
         </div>
@@ -26,12 +27,12 @@
     </div>
     <div class="hero-home-hours">
         <h3>Horaires d'ouverture</h3>
-        <p>{{ "now"|date("l d F Y") }}</p>
+        <p>{{ "now"|format_datetime(locale='fr',pattern="EEEE dd MMMM YYYY") }}</p>
         <ul>
             {% for destination in destinations %}
                 <li>
                     <span class="dest-icon">
-                        <img src="/uploads/destinations/icons/3.png" />
+                        <img src="/uploads/destinations/icon-3.png" />
                     </span>
                     <span>
                         <strong>{{ destination.name }}</strong><br/>
@@ -58,7 +59,7 @@
 
 
 {% if destinations %}
-    <section id="destinations">
+    <section id="destinations" class="home">
         <div class="section-title">
             <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
             <h2>Place au rêve à Disneyland Paris</h2>
@@ -88,7 +89,7 @@
 {% endif %}
 
 {% if hotels %}
-    <section id="hotels">
+    <section id="hotels" class="spaced">
         <div class="section-title">
             <img src="{{ asset('/images/icons/hotels.svg') }}" alt="Nos hôtels - Disneyland Paris" />
             <h2>Prolongez la magie jusque dans vos rêves</h2>
@@ -96,12 +97,9 @@
         <p>Choisissez votre hôtel parmi notre large gamme d'hôtels. Vous trouverez forcément celui qui vous convient.</p>
         <div class="cards">
             {% for hotel in hotels %}
-                <div class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if hotel.image %}{{ hotel.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <a href="/hotels/{{ hotel.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if hotel.image %}{{ hotel.image }}{% else %}/images/default-bg.jpg{% endif %});">
                     <h3>{{ hotel.name }}</h3>
-                    <div class="card-body">
-                        <a href="/hotels/{{ hotel.slug }}" class="btn btn-primary">Découvrir le {{hotel.name}}</a>
-                    </div>
-                </div>
+                </a>
             {% endfor %}    
         </div>
     </section>

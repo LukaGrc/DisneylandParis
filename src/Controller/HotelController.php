@@ -21,7 +21,7 @@ class HotelController extends AbstractController
 
         return $this->render('hotel/index.html.twig', [
             'hotels' => $hotels,
-            'topimg' => '/uploads/banners/hotels/all.jpg',
+            'topimg' => '/uploads/hotels/banner-all.jpg',
         ]);
     }
 

@@ -4,13 +4,22 @@
 
 {% block body %}
 
-<h1 class="page-title">Destinations de rêve à Disneyland Paris</h1>
+<div class="page-title">
+    <h1>Destinations de rêve à Disneyland Paris</h1>
+    <p>Prenez part à une incroyable célébration en famille ou entre amis à l'occasion de notre 30e Anniversaire !<br/>Laissez-vous porter par la magie de Disneyland Paris et plongez dans nos univers enchantés</p>
+</div>
 
-<ul>
-    {% for destination in destinations %}
-        <li><a href="/destinations/{{ destination.slug }}">{{ destination.name }}</a></li>
-    {% endfor %}
-</ul>
-
+<section id="destinations">
+        <div class="cards">
+            {% for destination in destinations %}
+                <div class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if destination.image %}{{ destination.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                    <h3>{{ destination.name }}</h3>
+                    <div class="card-body">
+                        <a href="/destinations/{{ destination.slug }}" class="btn btn-primary">Découvrir le {{destination.name}}</a>
+                    </div>
+                </div>
+            {% endfor %}    
+        </div>
+    </section>
 
 {% endblock %}

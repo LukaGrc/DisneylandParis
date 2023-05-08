@@ -23,7 +23,7 @@ class DestinationController extends AbstractController
 
         return $this->render('destination/index.html.twig', [
             'controller_name' => 'DestinationController',
-            'topimg' => '/uploads/banners/destinations/all.jpg',
+            'topimg' => '/uploads/destinations/banner-all.jpg',
             'destinations' => $destinations,
         ]);
     }

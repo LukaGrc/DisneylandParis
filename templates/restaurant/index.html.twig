@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Où manger à Disneyland Paris ?{% endblock %}
+
+{% block body %}
+
+<h1 class="page-title">Rendez votre visite délicieusement Mmm... Magique</h1>
+
+
+<h2>Restaurants</h2>
+<ul>
+    {% for destination in destinations %}
+        {% for restaurant in destination.restaurants %}
+            <li>
+                <a href="{{ path('app_restaurant', {'slug': restaurant.slug}) }}">{{ restaurant.name }}</a>
+            </li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+
+<h2>Restaurants dans les parcs disney</h2>
+
+
+<h2>Mangez à Disneyland Paris... même sans Billets Parcs !</h2>
+
+
+<h3>Restaurants dans les hôtels disney</h3>
+
+
+<h3>Restaurants dans le Disney Village</h3>
+
+{% endblock %}

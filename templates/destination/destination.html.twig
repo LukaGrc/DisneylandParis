@@ -4,7 +4,10 @@
 
 {% block body %}
 
-<h1 class="page-title">{{ destination.name }}</h1>
+<div class="page-title">
+    <h1>Le {{ destination.name }}</h1>
+    <p>{{ destination.description }}</p>
+</div>
 
 {% if lands is not empty %}
     <p>Lands :</p>

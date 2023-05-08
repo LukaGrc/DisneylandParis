@@ -42,6 +42,12 @@ class Hotel
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $banner = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $video = null;
+
     public function __construct()
     {
         $this->restaurants = new ArrayCollection();
@@ -217,6 +223,30 @@ class Hotel
     public function setBanner(?string $banner): self
     {
         $this->banner = $banner;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(string $video): self
+    {
+        $this->video = $video;
 
         return $this;
     }

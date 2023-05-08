@@ -4,9 +4,20 @@
 
 {% block body %}
 
-<h1 class="page-title">{{ hotel.name }}</h1>
+<div class="page-title">
+    <h1>{{ hotel.name }}</h1>
+    <p class="spaced">{{ hotel.description }}</p>
+    <a class="btn btn-primary" href="/book/hotels/{{ hotel.slug }}">Réserver</a>
+</div>
 
-<p>Types de chambres disponibles</p>
+<div class="hotel-video">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ hotel.video }}?autoplay=1&loop=1&playlist={{ hotel.video }}&mute=1&controls=1&origin=https%3A%2F%2Fwww.disneylandparis.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="1"></iframe>
+</div>
+
+
+
+
+<h2>Nos chambres pensées pour rêver</h2>
 
 <ul>
     {% for roomtype in hotel.roomtypes %}
@@ -14,15 +25,18 @@
     {% endfor %}
 </ul>
 
-<p>Restaurants :</p>
 
-<ul>
-    {% for restaurant in restaurants %}
-        <li>{{ restaurant.name }}</li>
-    {% endfor %}
-</ul>
+{% if restaurants is not empty %}
+    <h2>Restaurants :</h2>
 
-<p>Nos autres Hôtels :</p>
+    <ul>
+        {% for restaurant in restaurants %}
+            <li>{{ restaurant.name }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<h2>Nos autres Hôtels :</h2>
 
 <ul>
     {% for other_hotel in other_hotels %}
