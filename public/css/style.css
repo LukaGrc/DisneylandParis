@@ -533,3 +533,97 @@ section#hero-home, section#hero-page {
     display: flex;
     flex-direction: row-reverse;
 }
+
+
+
+/* PROFILE CSS */
+
+.profile-row {
+    max-width: 1008px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.profile-row .profile-col {
+    padding: 0 12px;
+}
+
+.col-25 {
+    width: 25%;
+}
+
+.col-75 {
+    width: 75%;
+}
+
+.profile-row .profile-col h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 35px;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.profile-row .profile-col .container {
+    padding: 0px;
+    margin-top: 32px;
+    border-radius: 12px;
+    box-shadow: rgb(191 191 191 / 50%) 0px 2px 8px 0px;
+    background-color: var(--main-bg-color);
+    overflow: hidden;
+}
+
+.profile-row .profile-col .container .menu-list {
+    background-color: #fff;
+    margin: 0px;
+    padding: 0;
+}
+
+.profile-row .profile-col .container .menu-list.middle {
+    margin: 20px 0px;
+}
+
+.profile-row .profile-col .container .menu-list li {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.profile-row .profile-col .container .menu-list li a {
+    transition: all 0.2s ease 0s;
+    padding: 4px 8px;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    text-decoration: none;
+    flex: 1 1 0%;
+    border-bottom: 1px solid #e5e5e5;
+    color: #253050;
+}
+
+.profile-row .profile-col .container .menu-list li a.active {
+    background-image: linear-gradient(to right, rgb(0, 51, 204) 50%, transparent 50%);
+    background-repeat: no-repeat;
+    background-position: calc(100% + 4px) 0px;
+    background-size: 200%;
+    color: rgb(0, 51, 204);
+}
+
+.profile-row .profile-col .container .menu-list li a div {
+    display: flex;
+    font-weight: 600;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    flex: 1 1 0%;
+    border-radius: 4px;
+    transition: all 0.3s ease 0s;
+    padding: 8px;
+}
+
+.profile-row .profile-col .container .menu-list li a div:hover {
+    background-color: rgb(229, 236, 253);
+}
+

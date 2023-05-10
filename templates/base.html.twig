@@ -34,7 +34,7 @@
     </head>
     <body>
         <header>
-            {% if (controller_name is not defined) or (controller_name != "HomeController") %}
+            {% if (withoutheader is not defined) %}
                 <section id="hero-page" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.5) 100%),url({% if topimg is defined and topimg %}{{ topimg }}{% else %}/images/default-bg.jpg{% endif %})">
                     <div class="hero-topbar">
                         <a href="/"><img src="{{ asset('/images/logo/dlp-30.svg') }}" alt="Disneyland Paris" /></a>

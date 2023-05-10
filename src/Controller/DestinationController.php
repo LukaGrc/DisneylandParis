@@ -22,7 +22,6 @@ class DestinationController extends AbstractController
         $destinations = $repository->findAll();
 
         return $this->render('destination/index.html.twig', [
-            'controller_name' => 'DestinationController',
             'topimg' => '/uploads/destinations/banner-all.jpg',
             'destinations' => $destinations,
         ]);
@@ -49,7 +48,6 @@ class DestinationController extends AbstractController
         if ($destination === null) throw new NotFoundHttpException('Destination was not found'); // This should activate the 404-page
 
         return $this->render('destination/destination.html.twig', [
-            'controller_name' => 'DestinationController',
             'topimg' => $destination->getBanner(),
             'destination' => $destination,
             'lands' => $destination->getLands(),

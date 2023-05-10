@@ -18,7 +18,7 @@ class HomeController extends AbstractController
     public function index(EntityManagerInterface $entityManager): Response
     {
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'withoutheader' => true,
             'destinations' => $entityManager->getRepository(Destination::class)->findAll(),
             'nouveautes' => $entityManager->getRepository(Nouveaute::class)->findAll(),
             'hotels' => $entityManager->getRepository(Hotel::class)->findAll(),

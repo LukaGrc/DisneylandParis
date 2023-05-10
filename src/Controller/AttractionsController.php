@@ -16,10 +16,18 @@ use App\Entity\Destination;
 class AttractionsController extends AbstractController
 {
     #[Route('/attractions', name: 'app_attractions')]
-    public function index(): Response
+    public function index(EntityManagerInterface $entityManager): Response
     {
+
+        $repository_cat = $entityManager->getRepository(AttractionCategory::class);
+        $categories = $repository_cat->findAll();
+
+        $repository_attrac = $entityManager->getRepository(Attraction::class);
+        $attractions = $repository_attrac->findAll();
+
         return $this->render('attractions/index.html.twig', [
-            'controller_name' => 'AttractionsController',
+            'attractions' => $attractions,
+            'categories' => $categories,
         ]);
     }
 
@@ -35,12 +43,12 @@ class AttractionsController extends AbstractController
                 throw new NotFoundHttpException('Category/Destination was not found'); // This should activate the 404-page
             }
 
-            return $this->render('attractions/index.html.twig', [
+            return $this->render('attractions/by_destination.html.twig', [
                 'controller_name' => $destination->getName(),
             ]);
         }    
 
-        return $this->render('attractions/index.html.twig', [
+        return $this->render('attractions/by_category.html.twig', [
             'controller_name' => $category->getName(),
         ]);
     }
