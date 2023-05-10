@@ -8,24 +8,35 @@
     <p>Votre compte Disney Rider est valable sur les sites de tous les parcs Disney.<br/>Billets, séjours, pass annuels, tout est au même endroit !</p>
 </div>
 
-    {{ form_start(registrationForm) }}
+    {{ form_start(registrationForm, { 'attr' : { 'class': 'secu-form' } }) }}
         {{ form_row(registrationForm.firstName, {
-            label: 'Prénom'
+            'attr': {'placeholder': 'Prénom'},
+            label: "Prénom"
         }) }}
         {{ form_row(registrationForm.lastName, {
-            label: 'Nom'
+            'attr': {'placeholder': 'Nom'},
+            label: "Nom"
         }) }}
-        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.email, {
+            'attr': {'placeholder': 'Adresse e-mail'},
+            label: "Adresse e-mail"
+        }) }}
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Mot de passe'
+            'attr': {'placeholder': 'Mot de passe'},
+            label: "Mot de passe"
         }) }}
         {{ form_row(registrationForm.birthDate, {
-            label: 'Date de naissance'
-        })}}
+            'attr': {'placeholder': 'Date de naissance'},
+            label: "Date de naissance"
+        }) }}
         {{ form_row(registrationForm.acceptOffers, {
+            'choice_row_attr': {'class': 'agree'},
             label: "Oui ! Je souhaite recevoir, par e-mail, des offres spéciales et des mises à jour à propos de Disneyland Paris et d'autres produits et services du groupe d'entreprises Walt Disney."
+            
         }) }}
 
         <button type="submit" class="btn">Créer mon compte</button>
     {{ form_end(registrationForm) }}
+
+<p class="text-center">Vous avez déjà un compte Disney Rider ? <a href="{{ path('app_login') }}">Connectez-vous</a>.</p>
 {% endblock %}
