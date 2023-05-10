@@ -7,7 +7,7 @@
 <div class="page-title">
     <h1>{{ hotel.name }}</h1>
     <p class="spaced">{{ hotel.description }}</p>
-    <a class="btn btn-primary" href="/book/hotels/{{ hotel.slug }}">Réserver</a>
+    <a class="btn btn-primary" href="/booking">Réserver</a>
 </div>
 
 <div class="hotel-video">
@@ -21,7 +21,7 @@
 
 <ul>
     {% for roomtype in hotel.roomtypes %}
-        <li>{{ roomtype.name }}</li>
+        <li>{{ roomtype.name }} ({{ roomtype.getNbRooms() }} chambres)</li>
     {% endfor %}
 </ul>
 

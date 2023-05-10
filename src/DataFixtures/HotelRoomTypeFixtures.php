@@ -57,6 +57,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newyork_rt_sup = new HotelRoomType();
         $hotel_newyork_rt_sup->setName('Chambre Supérieure')
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWYORK_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/1.jpg')
             ->setCapacity(4)
             ->setArea(31)
             ->setPrice(200);
@@ -64,6 +65,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newyork_rt_supt = new HotelRoomType();
         $hotel_newyork_rt_supt->setName('Chambre Supérieure avec Terrasse')
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWYORK_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/2.jpg')
             ->setCapacity(4)
             ->setArea(31)
             ->setPrice(220);
@@ -71,6 +73,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newyork_rt_supvj = new HotelRoomType();
         $hotel_newyork_rt_supvj->setName('Chambre Supérieure - Vue sur jardin')
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWYORK_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/3.jpg')
             ->setCapacity(4)
             ->setArea(31)
             ->setPrice(220);

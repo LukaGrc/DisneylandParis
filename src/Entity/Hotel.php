@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\HotelRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -250,4 +251,31 @@ class Hotel
 
         return $this;
     }
+
+    public function getRoomTypesAvailable(DateTime $date): array
+    {
+        $res = [];
+
+        foreach ($this->getRoomTypes() as $roomType) {
+            if (count($roomType->getAvailableRooms($date)) > 0) {
+                $res[] = $roomType;
+            }
+        }
+
+        return $res;
+    }
+
+    public function getRoomTypesAvailableForPeriod(DateTime $start, DateTime $end): array
+    {
+        $res = [];
+
+        foreach ($this->getRoomTypes() as $roomType) {
+            if (count($roomType->getAvailableRoomsForPeriod($start, $end)) > 0) {
+                $res[] = $roomType;
+            }
+        }
+
+        return $res;
+    }
+
 }

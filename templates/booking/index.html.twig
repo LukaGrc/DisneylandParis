@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos hôtels magiques à Disneyland Paris{% endblock %}
+
+{% block body %}
+
+<h1 class="page-title">Réserver un séjour inoubliable</h1>
+
+<div class="booking-search-form">
+
+    <!-- Make form who takes number of people (under 8) and date of arrival and departure -->
+    <form action="/booking/choose-hotel" method="GET">
+        <input type="number" name="people" placeholder="Nombre de personnes" min="1" max="8" {% if people %}value="{{ people }}"{% endif %} required>
+        <input type="date" name="arrival" placeholder="Date d'arrivée" min='{{ "now"|date("Y-m-d") }}' max='{{ "now"|date_modify("+1 year - 1 day")|date("Y-m-d") }}' {% if arrival %}value="{{ arrival }}"{% endif %}required>
+        <input type="date" name="departure" placeholder="Date de départ" min='{{ "now"|date_modify("+1 day")|date("Y-m-d") }}' max='{{ "now"|date_modify("+1 year")|date("Y-m-d") }}' {% if departure %}value="{{ departure }}"{% endif %}required>
+        <input class="btn" type="submit" value="Rechercher">
+    </form>
+</div>
+<p class="text-center">Notre système de réservation en ligne est limité à un séjour de 8 personnes maximum et à une durée de 5 jours maximum.<br/>Pour plus d'informations, n'hésitez pas à contacter notre centrale de réservation au 09 69 32 60 61.</p>
+
+
+{% if hotels %}
+    <section id="hotels" class="spaced">
+        <div class="section-title">
+            <img src="{{ asset('/images/icons/hotels.svg') }}" alt="Nos hôtels - Disneyland Paris" />
+            <h2>Nos hôtels qui feront rêver petits et grands</h2>
+        </div>
+        <p>Choisissez votre hôtel parmi notre large gamme d'hôtels. Vous trouverez forcément celui qui vous convient.</p>
+        <div class="cards">
+            {% for hotel in hotels %}
+                <a href="/hotels/{{ hotel.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if hotel.image %}{{ hotel.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                    <h3>{{ hotel.name }}</h3>
+                    {% if hotel.stars %}
+                        <p>
+                            {% for i in range(1, hotel.stars) %}
+                                &#9733;
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+                </a>
+            {% endfor %}    
+        </div>
+    </section>
+{% endif %}
+
+{% endblock %}

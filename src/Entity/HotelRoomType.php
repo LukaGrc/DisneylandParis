@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use App\Entity\Hotel;
 use App\Repository\HotelRoomTypeRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -39,6 +41,9 @@ class HotelRoomType
 
     #[ORM\Column(nullable: true)]
     private ?float $price = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
 
     public function __construct()
     {
@@ -134,6 +139,14 @@ class HotelRoomType
         return $this->rooms;
     }
 
+    /**
+     * @return int
+     */
+    public function getNbRooms(): int
+    {
+        return $this->rooms->count();
+    }
+
     public function addRoom(HotelRoom $room): self
     {
         if (!$this->rooms->contains($room)) {
@@ -176,6 +189,42 @@ class HotelRoomType
     public function setPrice(?float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getAvailableRooms(DateTime $date): array
+    {
+        $res = [];
+
+        foreach($this->rooms as $room) {
+            if ($room->isAvailable($date)) {
+                $res[] = $room;
+            }
+        }
+        return $res;
+    }
+
+    public function getAvailableRoomsForPeriod(DateTime $start, DateTime $end): array
+    {
+        $res = [];
+
+        foreach($this->rooms as $room) {
+            if ($room->isAvailableForPeriod($start, $end)) {
+                $res[] = $room;
+            }
+        }
+        return $res;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

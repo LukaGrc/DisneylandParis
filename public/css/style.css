@@ -536,6 +536,150 @@ section#hero-home, section#hero-page {
 
 
 
+
+/* BOOKING ZONE */
+
+.booking-search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+    padding: 25px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+}
+
+.booking-search-form input {
+    font-family: 'Montserrat','Helvetica','Arial','sans-serif';
+    width: calc(100% / 3 - 25px);
+    border: 1px solid #253b56;
+    color: #253b56;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.booking-search-form input.btn {
+    background: linear-gradient(73deg, rgb(0, 51, 204), rgb(0, 91, 255));
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    margin: 20px auto 0px;
+    display: block;
+}
+
+
+#choose-hotel {
+    display: flex;
+    gap: 10px;
+}
+
+#choose-hotel .hotel {
+    width: calc(100% / 3);
+    margin: 0;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+}
+
+#choose-hotel .hotel .hotel-img {
+    position: relative;
+}
+
+#choose-hotel .hotel .hotel-img img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#choose-hotel .hotel .hotel-img p {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 10px 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+    font-weight: 600;
+}
+
+#choose-hotel .hotel .hotel-info {
+    padding: 15px 15px 25px 15px;
+    text-align: center;
+}
+
+#choose-hotel .hotel .hotel-info h2 {
+    margin: 0px;
+}
+
+#choose-room {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#choose-room .room {
+    width: calc(100% / 3 - 10px);
+    margin: 0;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px 0px;
+}
+
+#choose-room .room .room-img {
+    position: relative;
+}
+
+#choose-room .room .room-img img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#choose-room .room .room-img p {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 10px 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
+    font-weight: 600;
+}
+
+#choose-room .room .room-info {
+    padding: 15px 15px 25px 15px;
+    text-align: center;
+}
+
+#choose-room .room .room-info h2 {
+    margin: 0px;
+}
+
 /* PROFILE CSS */
 
 .profile-row {

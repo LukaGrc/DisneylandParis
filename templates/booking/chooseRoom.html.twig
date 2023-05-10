@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos hôtels magiques à Disneyland Paris{% endblock %}
+
+{% block body %}
+
+<div class="page-title">
+    <h1>Nos chambres dédiées aux rêves</h1>
+    <p class="spaced">Pour {{ people }} personnes du {{ arrival|format_datetime(locale='fr',pattern="dd MMMM YYYY") }} au {{ departure|format_datetime(locale='fr',pattern="dd MMMM YYYY") }} au {{ hotel.name }}
+        <br/>
+        <a href="/booking?people={{ people }}&arrival={{ arrival }}&departure={{ departure }}">Modifier les paramètres</a> / <a href="/booking/choose-hotel?people={{ people }}&arrival={{ arrival }}&departure={{ departure }}">Changer d'hôtel</a>
+    </p>
+</div>
+
+<section id="choose-room">
+    {% for room in availableRoomTypes %}
+        <div class="room">
+            <div class="room-img">
+                <img src="{% if room.image %}{{ room.image }}{% else %}/uploads/hotels/banner-all.jpg{% endif %}" alt="{{ room.name }}">
+                <p>À partir de {{ room.price * nights }}€</p>
+            </div>
+            <div class="room-info">
+                <h2>{{ room.name }}</h2>
+                <p>{{ room.description }}</p>
+                <a href="" class="btn">Choisir</a>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
