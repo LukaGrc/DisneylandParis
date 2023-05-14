@@ -71,6 +71,7 @@ class DestinationController extends AbstractController
         return $this->render('destination/land.html.twig', [
             'destination' => $destination,
             'land' => $land,
+            'topimg' => $land->getImage(),
             'attractions' => $land->getAttractions(),
             'restaurants' => $land->getRestaurants(),
         ]);

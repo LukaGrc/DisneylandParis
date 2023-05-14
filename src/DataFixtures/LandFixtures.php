@@ -39,31 +39,36 @@ class LandFixtures extends Fixture implements DependentFixtureInterface
         $park_msu->setName('Main Street USA')
             ->setSlug('main-street-usa')
             ->setDescription("Une petite ville typique des États-Unis à l'aube du 20e siècle")
-            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE))
+            ->setImage('/uploads/destinations/lands/1.jpg');
 
         $park_disco = new Land();
         $park_disco->setName('Discoveryland')
             ->setSlug('discoveryland')
             ->setDescription("Rêves d'avenir des temps passé et présent")
-            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE))
+            ->setImage('/uploads/destinations/lands/2.jpg');
 
         $park_fant = new Land();
         $park_fant->setName('Fantasyland')
             ->setSlug('fantasyland')
             ->setDescription("Toute la magie des grands classiques Disney")
-            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE))
+            ->setImage('/uploads/destinations/lands/3.jpg');
 
         $park_front = new Land();
         $park_front->setName('Frontierland')
             ->setSlug('frontierland')
             ->setDescription("La conquète de l'Ouest")
-            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE))
+            ->setImage('/uploads/destinations/lands/4.jpg');
 
         $park_adv = new Land();
         $park_adv->setName('Adventureland')
             ->setSlug('adventureland')
             ->setDescription("Bienvenue dans le monde des explorateurs et des aventuriers")
-            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::PARK_REFERENCE))
+            ->setImage('/uploads/destinations/lands/5.jpg');
 
 
         // PARC WALT DISNEY STUDIOS
@@ -72,37 +77,43 @@ class LandFixtures extends Fixture implements DependentFixtureInterface
         $studios_front->setName('Front Lot')
             ->setSlug('front-lot')
             ->setDescription("L'évocation de l'entrée des grands studios de cinéma")
-            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE))
+            ->setImage('/uploads/destinations/lands/6.jpg');
 
         $studios_toon = new Land();
         $studios_toon->setName('Toon Studio')
             ->setSlug('toon-studio')
             ->setDescription("Là ou les toons prennent vie")
-            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE))
+            ->setImage('/uploads/destinations/lands/7.jpg');
         
         $studios_toy = new Land();
         $studios_toy->setName('Toy Story Playland')
             ->setSlug('toy-story-playland')
             ->setDescription("Un univers surdimmensionné où vous vous retrouvez à la taille d'un jouet !")
-            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE))
+            ->setImage('/uploads/destinations/lands/8.jpg');
 
         $studios_pixar = new Land();
         $studios_pixar->setName('World of Pixar')
             ->setSlug('world-of-pixar')
             ->setDescription("Là où les différents mondes de Pixar prennent vie")
-            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE))
+            ->setImage('/uploads/destinations/lands/9.jpg');
 
         $studios_prod = new Land();
         $studios_prod->setName('Production Courtyard')
             ->setSlug('production-courtyard')
             ->setDescription("Les merveilles du cinémaet de la télévision")
-            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE))
+            ->setImage('/uploads/destinations/lands/10.jpg');
 
         $studios_avengers = new Land();
         $studios_avengers->setName('Avengers Campus')
             ->setSlug('avengers-campus')
             ->setDescription("Préparez vous pour le rassemblement")
-            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE));
+            ->setDestination($this->getReference(DestinationFixtures::STUDIOS_REFERENCE))
+            ->setImage('/uploads/destinations/lands/11.jpg');
 
         $manager->persist($park_msu);
         $manager->persist($park_disco);

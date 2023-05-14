@@ -330,7 +330,7 @@ section#hero-home, section#hero-page {
 .section-title {
     display:flex;
     align-items: baseline;
-    margin: 0 0 0 2rem;
+    margin: 0 0 1rem 2rem;
 }
 
 .section-title img {
@@ -1057,3 +1057,40 @@ section#hero-home, section#hero-page {
   #secondary_content {
     display: none;
   }
+
+  
+
+/* LANDS CARDS */
+
+.section-land .cards, .section-attraction .cards, .section-restaurant .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.section-land .cards .card, .section-attraction .cards .card, .section-restaurant .cards .card {
+    width: calc(100% / 3 - 60px);
+    height: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.7em;
+    background-color: #fff;
+    background-size: cover;
+    background-position: center;
+    box-shadow: rgb(191 191 191 / 50%) 0px 2px 8px 0px;
+}
+
+.section-land .cards .card h3, .section-attraction .cards .card h3, .section-restaurant .cards .card h3 {
+    margin: 0;
+}
+
+.section-attraction .cards .card h3 {
+    font-size: 0.9em;
+}

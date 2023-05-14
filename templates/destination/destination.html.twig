@@ -10,43 +10,71 @@
 </div>
 
 {% if lands is not empty %}
-    <p>Lands :</p>
+<section class="section-land">
+    <div class="section-title">
+        <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
+        <h2>Les lands du {{ destination.name }}</h2>
+    </div>
 
-    <ul>
+    <div class="cards">
         {% for land in lands %}
-            <li><a href="/destinations/{{ destination.slug }}/{{ land.slug }}">{{ land.name }}</a></li>
-        {% endfor %}
-    </ul>
+            <a href ="/destinations/{{ destination.slug }}/{{ land.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if land.image %}{{ land.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <h3 class="text-center">{{ land.name }}</h3>
+            </a>
+        {% endfor %}    
+    </div>
+</section>
 {% endif %}
 
 {% if attractions is not empty %}
-    <p>Attractions :</p>
+<section class="section-attraction">
+    <div class="section-title">
+        <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
+        <h2>Nos attractions pour toute la famille</h2>
+    </div>
 
-    <ul>
+    <div class="cards">
         {% for attraction in attractions %}
-            <li><a href="/attractions/{{ destination.slug }}/{{ attraction.slug }}">{{ attraction.name }}</a></li>
-        {% endfor %}
-    </ul>
+            <a href ="/attractions/{{ destination.slug }}/{{ attraction.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if attraction.image is defined %}{{ attraction.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <h3 class="text-center">{{ attraction.name }}</h3>
+            </a>
+        {% endfor %}    
+    </div>
+</section>
 {% endif %}
 
 {% if restaurants is not empty %}
-    <p>Restaurants :</p>
+<section class="section-restaurant">
+    <div class="section-title">
+        <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
+        <h2>Nos restaurants pour les plus gourmands</h2>
+    </div>
 
-    <ul>
+    <div class="cards">
         {% for restaurant in restaurants %}
-            <li><a href="/restaurants/{{ restaurant.slug }}">{{ restaurant.name }}</a></li>
-        {% endfor %}
-    </ul>
+            <a href ="/restaurants/{{ restaurant.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if restaurant.image is defined %}{{ restaurant.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <h3 class="text-center">{{ restaurant.name }}</h3>
+            </a>
+        {% endfor %}    
+    </div>
+</section>
 {% endif %}
 
 {% if other_destinations is not empty %}
-    <p>Nos autres destinations</p>
+<section class="section-restaurant">
+    <div class="section-title">
+        <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
+        <h2>Nos autres desinations</h2>
+    </div>
 
-    <ul>
-        {% for other_destination in other_destinations %}
-            <li><a href="/destinations/{{ other_destination.slug }}">{{ other_destination.name }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="cards">
+        {% for destination in other_destinations %}
+            <a href ="/destinations/{{ destination.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if destination.image %}{{ destination.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <h3 class="text-center">{{ destination.name }}</h3>
+            </a>
+        {% endfor %}    
+    </div>
+</section>
 {% endif %}
 
 {% endblock %}

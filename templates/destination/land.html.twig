@@ -9,13 +9,22 @@
     <p>{{ land.description }}</p>
 </div>
 
-<p>Attractions :</p>
+{% if attractions is not empty %}
+    <section class="section-land">
+        <div class="section-title">
+            <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
+            <h2>Du fun pour tous !</h2>
+        </div>
 
-<ul>
-    {% for attraction in attractions %}
-        <li><a href="/attractions/{{ destination.slug }}/{{ attraction.slug }}">{{ attraction.name }}</a></li>
-    {% endfor %}
-</ul>
+        <div class="cards">
+            {% for land in attractions %}
+                <a href ="/destinations/{{ destination.slug }}/{{ land.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if land.image %}{{ land.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                    <h3>{{ land.name }}</h3>
+                </a>
+            {% endfor %}    
+        </div>
+    </section>
+{% endif %}
 
 <p>Restaurants :</p>
 

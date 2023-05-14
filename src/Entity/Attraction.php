@@ -38,6 +38,9 @@ class Attraction
     #[ORM\Column(nullable: true)]
     private ?int $min_height = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -135,6 +138,18 @@ class Attraction
     public function setMinHeight(?int $min_height): self
     {
         $this->min_height = $min_height;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
