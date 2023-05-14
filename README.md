@@ -159,7 +159,8 @@ Ce projet a été réalisé par Luka GARCIA & Maxence GILLES (Bachelor 2 - Class
 ⛔ **Attention :** Tout le contenu utilisé, dont l'ensemble des textes, images, et vidéos qui ont été utilisés pour ce projet sont la propriété de Disney Enterprises, Inc. tel que mentionné dans leurs mentions légales. **Ce projet ne peut donc être publié et auquel cas, nous déclinons toute responsabilité sur toute mise en ligne,** sauf sous accord écrit par Disney Enterprises, Inc.
 
 ```
-Les marques, logos et dessins figurant sur ce site sont la propriété de Disney Enterprises, Inc. Leur divulgation ne saurait en aucun cas être interprétée comme vous accordant quelque licence ou droit d'utilisation des dites marques et des éléments distinctifs protégés par le droit d'auteur.
+Les marques, logos et dessins figurant sur ce site sont la propriété de Disney Enterprises, Inc.
+Leur divulgation ne saurait en aucun cas être interprétée comme vous accordant quelque licence ou droit d'utilisation des dites marques et des éléments distinctifs protégés par le droit d'auteur.
 Ils ne peuvent donc être utilisés sous peine de contrefaçon.
 ```
 
