@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Hôtels | Panel Admin - Disneyland Paris{% endblock %}
+
+{% block body %}
+    <h1>Hôtels</h1>
+    <p></p>
+
+    <table class=\"table table-striped\">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Étoiles</th>
+                <th>Nombre de chambres</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hotel in hotels %}
+            <tr>
+                <td>{{ hotel.id }}</td>
+                <td>{{ hotel.name }}</td>
+                <td>{{ hotel.stars }}</td>
+                <td>{{ hotel.rooms|length }}</td>
+                <td>
+                    <a href="" class="warn-btn">Voir/Modifier</a>
+                    <a href="" class="danger-btn">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan=\"5\">Aucun hôtel trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

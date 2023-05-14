@@ -758,16 +758,23 @@ section#hero-home, section#hero-page {
     margin: 0px;
 }
 
-/* PROFILE CSS */
+/* PROFILE & ADMIN CSS */
 
-.profile-row {
-    max-width: 1008px;
+.profile-row, .admin-row {
     margin: 0 auto;
     display: flex;
 }
 
+.profile-row {
+    max-width: 1008px;
+}
+
 .profile-row .profile-col, .admin-row .admin-col {
     padding: 0 12px;
+}
+
+.col-10 {
+    width: 10%;
 }
 
 .col-25 {
@@ -776,6 +783,10 @@ section#hero-home, section#hero-page {
 
 .col-75 {
     width: 75%;
+}
+
+.col-90 {
+    width: 90%;
 }
 
 .profile-row .profile-col .container, .admin-row .admin-col .container {
@@ -844,6 +855,56 @@ section#hero-home, section#hero-page {
 
 .profile-row .profile-col .container .menu-list li a div:hover, .admin-row .admin-col .container .menu-list li a div:hover {
     background-color: rgb(229, 236, 253);
+}
+
+.admin-row .admin-col table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-row .admin-col table thead tr th {
+    background-color: #fff;
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+    font-weight: 600;
+    text-align: left;
+}
+
+.admin-row .admin-col table tbody tr td {
+    padding: 12px 8px;
+    border-bottom: 1px solid #fff;
+}
+
+.admin-row .admin-col table tbody tr td img {
+    height: 32px;
+    margin-right: 8px;
+}
+
+.admin-row .admin-col table tbody tr td a.warn-btn {
+    color: #fff;
+    background-color: #c99e00;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease 0s;
+}
+
+.admin-row .admin-col table tbody tr td a.warn-btn:hover {
+    background-color: #a57e00;
+}
+
+.admin-row .admin-col table tbody tr td a.danger-btn {
+    color: #fff;
+    background-color: #c90000;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease 0s;
+}
+
+.admin-row .admin-col table tbody tr td a.danger-btn:hover {
+    background-color: #a50000;
 }
 
 

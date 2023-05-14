@@ -6,12 +6,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
+use Doctrine\ORM\EntityManagerInterface;
+
+use App\Entity\User;
+use App\Entity\Destination;
+use App\Entity\Land;
+use App\Entity\Hotel;
+use App\Entity\Restaurant;
+use App\Entity\Attraction;
+
 class AdminController extends AbstractController
 {
     #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/home/index.html.twig', [
             'withoutheader' => true,
             'active' => 'Home',
             'activeSub' => null,
@@ -19,9 +30,13 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/users', name: 'app_admin_users')]
-    public function users(): Response
+    public function users(EntityManagerInterface $entityManager): Response
     {
-        return $this->render('admin/index.html.twig', [
+        $repository = $entityManager->getRepository(User::class);
+        $users = $repository->findAll();
+
+        return $this->render('admin/users/index.html.twig', [
+            'users' => $users,
             'withoutheader' => true,
             'active' => 'Users',
             'activeSub' => null,
@@ -31,7 +46,7 @@ class AdminController extends AbstractController
     #[Route('/admin/users/search', name: 'app_admin_users_search')]
     public function usersSearch(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/users/search.html.twig', [
             'withoutheader' => true,
             'active' => 'Users',
             'activeSub' => 'Search',
@@ -41,7 +56,7 @@ class AdminController extends AbstractController
     #[Route('/admin/users/admins', name: 'app_admin_users_admins')]
     public function usersAdmin(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/users/index.html.twig', [
             'withoutheader' => true,
             'active' => 'Users',
             'activeSub' => 'Admins',
@@ -49,9 +64,13 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/destinations', name: 'app_admin_destinations')]
-    public function destinations(): Response
+    public function destinations(EntityManagerInterface $entityManager): Response
     {
-        return $this->render('admin/index.html.twig', [
+        $repository = $entityManager->getRepository(Destination::class);
+        $destinations = $repository->findAll();
+
+        return $this->render('admin/destinations/index.html.twig', [
+            'destinations' => $destinations,
             'withoutheader' => true,
             'active' => 'Destinations',
             'activeSub' => null,
@@ -59,9 +78,13 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/destinations/lands', name: 'app_admin_destinations_lands')]
-    public function destinationsLands(): Response
+    public function destinationsLands(EntityManagerInterface $entityManager): Response
     {
-        return $this->render('admin/index.html.twig', [
+        $repository = $entityManager->getRepository(Land::class);
+        $lands = $repository->findAll();        
+
+        return $this->render('admin/destinations/land.html.twig', [
+            'lands' => $lands,
             'withoutheader' => true,
             'active' => 'Destinations',
             'activeSub' => 'Lands',
@@ -69,9 +92,13 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/hotels', name: 'app_admin_hotels')]
-    public function hotels(): Response
+    public function hotels(EntityManagerInterface $entityManager): Response
     {
-        return $this->render('admin/index.html.twig', [
+        $repository = $entityManager->getRepository(Hotel::class);
+        $hotels = $repository->findAll();
+
+        return $this->render('admin/hotels/index.html.twig', [
+            'hotels' => $hotels,
             'withoutheader' => true,
             'active' => 'Hotels',
             'activeSub' => null,
@@ -81,7 +108,7 @@ class AdminController extends AbstractController
     #[Route('/admin/hotels/add', name: 'app_admin_hotels_add')]
     public function hotelsAdd(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/hotels/add.html.twig', [
             'withoutheader' => true,
             'active' => 'Hotels',
             'activeSub' => 'Add',
@@ -91,7 +118,7 @@ class AdminController extends AbstractController
     #[Route('/admin/hotels/bookings', name: 'app_admin_hotels_bookings')]
     public function hotelsBookings(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/hotels/bookings.html.twig', [
             'withoutheader' => true,
             'active' => 'Hotels',
             'activeSub' => 'Bookings',
@@ -99,9 +126,13 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/attractions', name: 'app_admin_attractions')]
-    public function attractions(): Response
+    public function attractions(EntityManagerInterface $entityManager): Response
     {
-        return $this->render('admin/index.html.twig', [
+        $repository = $entityManager->getRepository(Attraction::class);
+        $attractions = $repository->findAll();
+
+        return $this->render('admin/attractions/index.html.twig', [
+            'attractions' => $attractions,
             'withoutheader' => true,
             'active' => 'Attractions',
             'activeSub' => null,
@@ -111,7 +142,7 @@ class AdminController extends AbstractController
     #[Route('/admin/attractions/categories', name: 'app_admin_attractions_categories')]
     public function attractionsCategories(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/attractions/categories.html.twig', [
             'withoutheader' => true,
             'active' => 'Attractions',
             'activeSub' => 'Categories',
@@ -121,7 +152,7 @@ class AdminController extends AbstractController
     #[Route('/admin/attractions/add', name: 'app_admin_attractions_add')]
     public function attractionsAdd(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/attractions/add.html.twig', [
             'withoutheader' => true,
             'active' => 'Attractions',
             'activeSub' => 'Add',
@@ -131,7 +162,7 @@ class AdminController extends AbstractController
     #[Route('/admin/restaurants', name: 'app_admin_restaurants')]
     public function restaurants(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/restaurants/index.html.twig', [
             'withoutheader' => true,
             'active' => 'Restaurants',
             'activeSub' => null,
@@ -141,7 +172,7 @@ class AdminController extends AbstractController
     #[Route('/admin/restaurants/add', name: 'app_admin_restaurants_add')]
     public function restaurantsAdd(): Response
     {
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/restaurants/add.html.twig', [
             'withoutheader' => true,
             'active' => 'Restaurants',
             'activeSub' => 'Add',

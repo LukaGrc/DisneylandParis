@@ -21,8 +21,17 @@ class UserFixtures extends Fixture
             ->setRoles(['ROLE_ADMIN'])
             ->setBirthDate(DateTime::createFromFormat('Y-m-d', '1990-01-01'))
             ->setAcceptOffers(false);
+
+        $luka = new User();
+        $luka->setEmail('luka.garcia@disneylandparis.com')
+            ->setPassword('$2y$13$4u.zfa69dSFVDq0I1fVGBe0jGXGqzYwMsM/RcJlfBzskYpgXKIkci')
+            ->setFirstName('Luka')
+            ->setLastName('GARCIA')
+            ->setBirthDate(DateTime::createFromFormat('Y-m-d', '2003-11-07'))
+            ->setAcceptOffers(true);
         
         $manager->persist($admin);
+        $manager->persist($luka);
 
         $manager->flush();
     }

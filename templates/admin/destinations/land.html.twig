@@ -1,0 +1,36 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Lands | Panel Admin - Disneyland Paris{% endblock %}
+
+{% block body %}
+    <h1>Destinations - Lands</h1>
+    <p></p>
+
+    <table class=\"table table-striped\">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Destination</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for land in lands %}
+            <tr>
+                <td>{{ land.id }}</td>
+                <td>{{ land.name }}</td>
+                <td>{{ land.destination.name }}</td>
+                <td>
+                    <a href="" class="warn-btn">Voir/Modifier</a>
+                    <a href="" class="danger-btn">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan=\"5\">Aucun land trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

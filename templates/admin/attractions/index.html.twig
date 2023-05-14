@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Attractions | Panel Admin - Disneyland Paris{% endblock %}
+
+{% block body %}
+    <h1>Attractions</h1>
+    <p></p>
+
+    <table class=\"table table-striped\">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prix Premier Acces</th>
+                <th>Taille minimale</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for attraction in attractions %}
+            <tr>
+                <td>{{ attraction.id }}</td>
+                <td>{{ attraction.name }}</td>
+                <td>{% if attraction.premieraccessprice %}{{ attraction.premieraccessprice }}  €{% endif %}</td>
+                <td>{% if attraction.minheight %}{{ attraction.minheight }} cm{% endif %}</td>
+                <td>
+                    <a href="" class="warn-btn">Voir/Modifier</a>
+                    <a href="" class="danger-btn">Supprimer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan=\"5\">Aucune destination trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
