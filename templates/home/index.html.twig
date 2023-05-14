@@ -17,6 +17,16 @@
                 <li><a href="/hotels">Hôtels</a></li>
                 <li><a href="/restaurants">Restaurants</a></li>
                 <li><a href="/ticketing">Billetterie</a></li>
+                <li>
+                    <a class="connect" href="/disney-rider">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14.8" height="18" fill="#202249"><g width="14.8" height="18" fill-rule="evenodd" stroke="none" stroke-width="1"><path fill="#202249" d="M17.217 12.684C19.506 13.812 21 15.929 21 19.386v.608C21 20.55 20.5 21 19.89 21H4.11C3.5 21 3 20.55 3 19.994v-.608c0-3.425 1.467-5.536 3.72-6.67a7.368 7.368 0 005.233 2.171c2.065 0 3.93-.846 5.264-2.203zM11.953 2c3.155 0 5.714 2.524 5.714 5.639s-2.559 5.638-5.714 5.638c-3.154 0-5.71-2.523-5.71-5.638C6.242 4.524 8.798 2 11.952 2z"></path></g></svg>
+                        {% if  app.user %}
+                            {{ app.user.firstname }}
+                        {% else %}
+                            Se connecter
+                        {% endif %}
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

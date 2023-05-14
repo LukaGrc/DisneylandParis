@@ -3,18 +3,65 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="page-container">
+    <div class="page-sidebar">
+        <ul>
+            <li>
+                <a href="{{path('app_home')}}">Retourner au site</a>
+            </li>
+            <li>
+                <a {% if active == "Home" %}class="active" {% endif %} href="{{path('app_admin')}}">Accueil</a>
+            </li>
+            <li>
+                <a {% if active == "Users" %}class="active" {% endif %} href="/admin/users">Utilisateurs</a>
+                <ul class="sub-menu">
+                    <li><a {% if active == "Users" and activeSub == "Home" %}class="active" {% endif %} href="/admin/users">Afficher</a></li>
+                    <li><a {% if active == "Users" and activeSub == "Search" %}class="active" {% endif %} href="/admin/users/search">Rechercher</a></li>
+                    <li><a {% if active == "Users" and activeSub == "Admins" %}class="active" {% endif %} href="/admin/users/admins">Administrateurs</a></li>
+                </ul>
+            </li>
+            <li>
+                <a {% if active == "Destinations" %}class="active" {% endif %} href="/admin/destinations">Destinations</a>
+                <ul class="sub-menu">
+                    <li><a {% if active == "Destinations" and activeSub == "Home" %}class="active" {% endif %} href="/admin/destinations">Afficher</a></li>
+                    <li><a {% if active == "Destinations" and activeSub == "Lands" %}class="active" {% endif %} href="/admin/destinations/lands">Lands</a></li>
+                </ul>
+            </li>
+            <li>
+                <a {% if active == "Hotels" %}class="active" {% endif %} href="/admin/hotels">Hôtels</a>
+                <ul class="sub-menu">
+                    <li><a {% if active == "Hotels" and activeSub == "Home" %}class="active" {% endif %} href="/admin/hotels">Afficher</a></li>
+                    <li><a {% if active == "Hotels" and activeSub == "Add" %}class="active" {% endif %} href="/admin/hotels/add">Ajouter</a></li>
+                    <li><a {% if active == "Hotels" and activeSub == "Books" %}class="active" {% endif %} href="/admin/hotels/books">Réservations</a></li>
+                </ul>
+            </li>
+            <li>
+                <a {% if active == "Attractions" %}class="active" {% endif %} href="/admin/attractions">Attractions</a>
+                <ul class="sub-menu">
+                    <li><a {% if active == "Attractions" and activeSub == "Home" %}class="active" {% endif %} href="/admin/attractions">Afficher</a></li>
+                    <li><a {% if active == "Attractions" and activeSub == "Categories" %}class="active" {% endif %} href="/admin/attractions/categories">Catégories</a></li>
+                    <li><a {% if active == "Attractions" and activeSub == "Add" %}class="active" {% endif %} href="/admin/attractions/add">Ajouter</a></li>
+                </ul>
+            </li>
+            <li>
+                <a {% if active == "Restaurants" %}class="active" {% endif %} href="/admin/restaurants">Restaurants</a>
+                <ul class="sub-menu">
+                    <li><a {% if active == "Restaurants" and activeSub == "Home" %}class="active" {% endif %} href="/admin/restaurants">Afficher</a></li>
+                    <li><a {% if active == "Restaurants" and activeSub == "Add" %}class="active" {% endif %} href="/admin/restaurants/add">Ajouter</a></li>
+                </ul>
+            </li>
+            <li>
+                <a {% if active == "Ticketing" %}class="active" {% endif %} href="/admin/ticketing">Billeterie</a>
+                <ul class="sub-menu">
+                    <li><a {% if active == "Ticketing" and activeSub == "Types" %}class="active" {% endif %} href="/admin/ticketing/types">Types de billets</a></li>
+                    <li><a {% if active == "Ticketing" and activeSub == "Purshases" %}class="active" {% endif %} href="/admin/ticketing/purchases">Achats</a></li>
+                </ul>
+            </li>
+            <li>
+                <a {% if active == "Stats" %}class="active" {% endif %} href="/admin/stats">Statistiques</a>
+            </li>
+        </ul>
+    </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'E:/Users/Utilisateur/Documents/1 - Scolarité & Études/3 - Ynov/Ynov B2 (22-23)/dlp-v1/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'E:/Users/Utilisateur/Documents/1 - Scolarité & Études/3 - Ynov/Ynov B2 (22-23)/dlp-v1/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
 </div>
 {% endblock %}
