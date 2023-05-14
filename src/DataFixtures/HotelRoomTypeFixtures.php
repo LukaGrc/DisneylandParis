@@ -81,6 +81,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newyork_rt_emp = new HotelRoomType();
         $hotel_newyork_rt_emp->setName('Chambre Empire')
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWYORK_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/4.jpg')
             ->setCapacity(4)
             ->setArea(31)
             ->setPrice(240);
@@ -88,6 +89,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newyork_rt_empvl = new HotelRoomType();
         $hotel_newyork_rt_empvl->setName('Chambre Empire - Vue sur lac')
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWYORK_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/5.jpg')
             ->setCapacity(4)
             ->setArea(31)
             ->setPrice(260);
@@ -110,6 +112,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_santafe_rt_std = new HotelRoomType();
         $hotel_santafe_rt_std->setName('Chambre Standard Cars')
             ->setHotel($this->getReference(HotelFixtures::HOTEL_SANTAFE_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/6.jpg')
             ->setCapacity(4)
             ->setArea(21)
             ->setPrice(100);
@@ -117,6 +120,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_santafe_rt_stdc = new HotelRoomType();
         $hotel_santafe_rt_stdc->setName('Chambre Standard Cars - Proche commodités')
             ->setHotel($this->getReference(HotelFixtures::HOTEL_SANTAFE_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/7.jpg')
             ->setCapacity(4)
             ->setArea(21)
             ->setPrice(120);
@@ -124,6 +128,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_santafe_rt_stdr = new HotelRoomType();
         $hotel_santafe_rt_stdr->setName('Chambre Standard Cars - Côté rivière')
             ->setHotel($this->getReference(HotelFixtures::HOTEL_SANTAFE_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/8.jpg')
             ->setCapacity(4)
             ->setArea(21)
             ->setPrice(120);
@@ -141,6 +146,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_cheyenne_rt_std = new HotelRoomType();
         $hotel_cheyenne_rt_std->setName("Chambre Standard Woody's Roundup")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_CHEYENNE_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/9.jpg')
             ->setCapacity(4)
             ->setArea(21)
             ->setPrice(100);
@@ -148,6 +154,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_cheyenne_rt_stdc = new HotelRoomType();
         $hotel_cheyenne_rt_stdc->setName("Chambre Standard Woody's Roundup - Proche installations")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_CHEYENNE_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/10.jpg')
             ->setCapacity(4)
             ->setArea(21)
             ->setPrice(120);
@@ -155,6 +162,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_cheyenne_rt_stdr = new HotelRoomType();
         $hotel_cheyenne_rt_stdr->setName("Chambre Double/Lit Gigogne Woody's Roundup - Côté rivière")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_CHEYENNE_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/11.jpg')
             ->setCapacity(4)
             ->setArea(21)
             ->setPrice(120);
@@ -172,6 +180,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_sequoia_rt_std = new HotelRoomType();
         $hotel_sequoia_rt_std->setName("Chambre Standard")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_SEQUOIA_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/12.jpg')
             ->setCapacity(4)
             ->setArea(27)
             ->setPrice(150);
@@ -179,6 +188,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_sequoia_rt_stdc = new HotelRoomType();
         $hotel_sequoia_rt_stdc->setName("Chambre Standard - Proche installations hôtelières")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_SEQUOIA_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/13.jpg')
             ->setCapacity(4)
             ->setArea(27)
             ->setPrice(170);
@@ -186,6 +196,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_sequoia_rt_stdcl = new HotelRoomType();
         $hotel_sequoia_rt_stdcl->setName("Chambre Standard - Proche installations hôtelières - Côté lac")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_SEQUOIA_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/14.jpg')
             ->setCapacity(4)
             ->setArea(27)
             ->setPrice(170);
@@ -193,6 +204,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_sequoia_rt_goldfc = new HotelRoomType();
         $hotel_sequoia_rt_goldfc->setName("Chambre Golden Forest Club")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_SEQUOIA_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/15.jpg')
             ->setCapacity(4)
             ->setArea(27)
             ->setPrice(200);
@@ -200,6 +212,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_sequoia_rt_goldfcl = new HotelRoomType();
         $hotel_sequoia_rt_goldfcl->setName("Chambre Golden Forest Club - Côté lac")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_SEQUOIA_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/16.jpg')
             ->setCapacity(4)
             ->setArea(27)
             ->setPrice(220);
@@ -222,6 +235,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newport_rt_std = new HotelRoomType();
         $hotel_newport_rt_std->setName("Chambre Supérieure")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWPORT_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/17.jpg')
             ->setCapacity(4)
             ->setArea(27)
             ->setPrice(150);
@@ -229,6 +243,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newport_rt_stdl = new HotelRoomType();
         $hotel_newport_rt_stdl->setName("Chambre Supérieure - Côté lac")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWPORT_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/18.jpg')
             ->setCapacity(4)
             ->setArea(27)
             ->setPrice(170);
@@ -236,6 +251,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newport_rt_stdt = new HotelRoomType();
         $hotel_newport_rt_stdt->setName("Chambre Supérieure avec Terrasse")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWPORT_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/19.jpg')
             ->setCapacity(4)
             ->setArea(27)
             ->setPrice(170);
@@ -243,6 +259,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newport_rt_comp = new HotelRoomType();
         $hotel_newport_rt_comp->setName("Chambre Compass Club")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWPORT_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/20.jpg')
             ->setCapacity(2)
             ->setArea(27)
             ->setPrice(200);
@@ -250,6 +267,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_newport_rt_compl = new HotelRoomType();
         $hotel_newport_rt_compl->setName("Chambre Compass Club - Côté lac")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_NEWPORT_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/21.jpg')
             ->setCapacity(2)
             ->setArea(27)
             ->setPrice(220);
@@ -272,6 +290,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_davycrockett_rt_trappeur = new HotelRoomType();
         $hotel_davycrockett_rt_trappeur->setName("Bungalow Tribu Trappeur")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_DAVYCROCKETT_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/22.jpg')
             ->setCapacity(6)
             ->setArea(40)
             ->setPrice(150);
@@ -279,6 +298,7 @@ class HotelRoomTypeFixtures extends Fixture implements DependentFixtureInterface
         $hotel_davycrockett_rt_pionnier = new HotelRoomType();
         $hotel_davycrockett_rt_pionnier->setName("Bungalow Tribu Pionnier")
             ->setHotel($this->getReference(HotelFixtures::HOTEL_DAVYCROCKETT_REFERENCE))
+            ->setImage('/uploads/hotels/rooms/23.jpg')
             ->setCapacity(6)
             ->setArea(40)
             ->setPrice(150);

@@ -14,17 +14,22 @@
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ hotel.video }}?autoplay=1&loop=1&playlist={{ hotel.video }}&mute=1&controls=1&origin=https%3A%2F%2Fwww.disneylandparis.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="1"></iframe>
 </div>
 
+{% if hotel.roomtypes is not empty %}
+<section class="section-attraction">
+    <div class="section-title">
+        <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
+        <h2>Nos chambres pensées pour rêver</h2>
+    </div>
 
-
-
-<h2>Nos chambres pensées pour rêver</h2>
-
-<ul>
-    {% for roomtype in hotel.roomtypes %}
-        <li>{{ roomtype.name }} ({{ roomtype.getNbRooms() }} chambres)</li>
-    {% endfor %}
-</ul>
-
+    <div class="cards">
+        {% for roomtype in hotel.roomtypes %}
+            <div class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if roomtype.image %}{{ roomtype.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <h3 class="text-center">{{ roomtype.name }}</h3>
+            </div>
+        {% endfor %}    
+    </div>
+</section>
+{% endif %}
 
 {% if restaurants is not empty %}
     <h2>Restaurants :</h2>
@@ -43,5 +48,6 @@
         <li><a href="/hotels/{{ other_hotel.slug }}">{{ other_hotel.name }}</a></li>
     {% endfor %}
 </ul>
+
 
 {% endblock %}
