@@ -32,13 +32,20 @@
 {% endif %}
 
 {% if restaurants is not empty %}
-    <h2>Restaurants :</h2>
+<section class="section-attraction">
+    <div class="section-title">
+        <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
+        <h2>Des restaurants à proximité de chez vous</h2>
+    </div>
 
-    <ul>
+    <div class="cards">
         {% for restaurant in restaurants %}
-            <li>{{ restaurant.name }}</li>
-        {% endfor %}
-    </ul>
+            <div class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if restaurant.image %}{{ restaurant.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <h3 class="text-center">{{ restaurant.name }}</h3>
+            </div>
+        {% endfor %}    
+    </div>
+</section>
 {% endif %}
 
 <h2>Nos autres Hôtels :</h2>

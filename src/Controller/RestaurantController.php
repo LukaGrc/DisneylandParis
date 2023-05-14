@@ -19,18 +19,19 @@ class RestaurantController extends AbstractController
     #[Route('/restaurants', name: 'app_restaurants')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        //$repository = $entityManager->getRepository(Restaurant::class);
-        //$restaurants = $repository->findAll();
+        $repository = $entityManager->getRepository(Restaurant::class);
+        $restaurants = $repository->findAll();
 
-        $repository_dest = $entityManager->getRepository(Destination::class);
-        $destinations = $repository_dest->findAll();
+        //$repository_dest = $entityManager->getRepository(Destination::class);
+        //$destinations = $repository_dest->findAll();
 
-        $repository_hotel = $entityManager->getRepository(Hotel::class);
-        $hotels = $repository_hotel->findAll();
+        //$repository_hotel = $entityManager->getRepository(Hotel::class);
+        //$hotels = $repository_hotel->findAll();
 
         return $this->render('restaurant/index.html.twig', [
-            'destinations' => $destinations,
-            'hotels' => $hotels,
+            'restaurants' => $restaurants,
+            //'destinations' => $destinations,
+            //'hotels' => $hotels,
             'topimg' => '/uploads/restaurants/banner-all.jpg',
         ]);
     }
@@ -44,7 +45,7 @@ class RestaurantController extends AbstractController
         if ($restaurant === null) throw new NotFoundHttpException('Restaurant was not found'); // This should activate the 404-page
 
         return $this->render('restaurant/restaurant.html.twig', [
-            'topimg' => $restaurant->getBanner(),
+            'topimg' => $restaurant->getImage(),
             'restaurant' => $restaurant,
         ]);
     }

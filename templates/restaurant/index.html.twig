@@ -7,26 +7,16 @@
 <h1 class="page-title">Rendez votre visite délicieusement Mmm... Magique</h1>
 
 
-<h2>Restaurants</h2>
-<ul>
-    {% for destination in destinations %}
-        {% for restaurant in destination.restaurants %}
-            <li>
-                <a href="{{ path('app_restaurant', {'slug': restaurant.slug}) }}">{{ restaurant.name }}</a>
-            </li>
-        {% endfor %}
-    {% endfor %}
-</ul>
-
-<h2>Restaurants dans les parcs disney</h2>
-
-
-<h2>Mangez à Disneyland Paris... même sans Billets Parcs !</h2>
-
-
-<h3>Restaurants dans les hôtels disney</h3>
-
-
-<h3>Restaurants dans le Disney Village</h3>
+{% if restaurants is not empty %}
+<section class="section-attraction">
+    <div class="cards">
+        {% for restaurant in restaurants %}
+            <a href="/restaurants/{{ restaurant.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if restaurant.image %}{{ restaurant.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <h3 class="text-center">{{ restaurant.name }}</h3>
+            </a>
+        {% endfor %}    
+    </div>
+</section>
+{% endif %}
 
 {% endblock %}

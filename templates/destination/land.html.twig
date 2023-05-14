@@ -10,28 +10,37 @@
 </div>
 
 {% if attractions is not empty %}
-    <section class="section-land">
+    <section class="section-attraction">
         <div class="section-title">
             <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
-            <h2>Du fun pour tous !</h2>
+            <h2>Il est temps de s'amuser</h2>
         </div>
 
         <div class="cards">
-            {% for land in attractions %}
-                <a href ="/destinations/{{ destination.slug }}/{{ land.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if land.image %}{{ land.image }}{% else %}/images/default-bg.jpg{% endif %});">
-                    <h3>{{ land.name }}</h3>
+            {% for attraction in attractions %}
+                <a href ="/attractions/{{ destination.slug }}/{{ attraction.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if attraction.image %}{{ attraction.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                    <h3 class="text-center">{{ attraction.name }}</h3>
                 </a>
             {% endfor %}    
         </div>
     </section>
 {% endif %}
 
-<p>Restaurants :</p>
+{% if restaurants is not empty %}
+<section class="section-restaurant">
+    <div class="section-title">
+        <img src="{{ asset('/images/icons/destinations.svg') }}" alt="Nos destinations - Disneyland Paris" />
+        <h2>Un petit creux ? On a ce qu'il faut !</h2>
+    </div>
 
-<ul>
-    {% for restaurant in restaurants %}
-        <li>{{ restaurant.name }}</li>
-    {% endfor %}
-</ul>
+    <div class="cards">
+        {% for restaurant in restaurants %}
+            <a href ="/restaurants/{{ restaurant.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if restaurant.image is defined %}{{ restaurant.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                <h3 class="text-center">{{ restaurant.name }}</h3>
+            </a>
+        {% endfor %}    
+    </div>
+</section>
+{% endif %}
 
 {% endblock %}
