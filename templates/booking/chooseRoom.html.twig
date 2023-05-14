@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos hôtels magiques à Disneyland Paris{% endblock %}
+{% block title %}Réservez votre séjour à Disneyland Paris | Choix de la chambre{% endblock %}
 
 {% block body %}
 
@@ -16,13 +16,13 @@
     {% for room in availableRoomTypes %}
         <div class="room">
             <div class="room-img">
-                <img src="{% if room.image %}{{ room.image }}{% else %}/uploads/hotels/banner-all.jpg{% endif %}" alt="{{ room.name }}">
+                <img src="{% if room.image %}{{ room.image }}{% else %}/uploads/hotels/banner-all.jpg{% endif %}" alt="{{ room.name }} au {{ hotel.name }}">
                 <p>À partir de {{ room.price * nights }}€</p>
             </div>
             <div class="room-info">
                 <h2>{{ room.name }}</h2>
                 <p>{{ room.description }}</p>
-                <a href="" class="btn">Choisir</a>
+                <a href="/booking/choose-formula?hotel={{ hotel.id }}&room={{ room.id }}&people={{ people }}&arrival={{ arrival }}&departure={{ departure }}" class="btn">Choisir</a>
             </div>
         </div>
     {% endfor %}

@@ -252,26 +252,30 @@ class Hotel
         return $this;
     }
 
-    public function getRoomTypesAvailable(DateTime $date): array
+    public function getRoomTypesAvailable(DateTime $date, int $people): array
     {
         $res = [];
 
         foreach ($this->getRoomTypes() as $roomType) {
-            if (count($roomType->getAvailableRooms($date)) > 0) {
-                $res[] = $roomType;
+            if ($roomType->getCapacity() >= $people) {
+                if (count($roomType->getAvailableRooms($date)) > 0) {
+                    $res[] = $roomType;
+                }
             }
         }
 
         return $res;
     }
 
-    public function getRoomTypesAvailableForPeriod(DateTime $start, DateTime $end): array
+    public function getRoomTypesAvailableForPeriod(DateTime $start, DateTime $end, int $people): array
     {
         $res = [];
 
         foreach ($this->getRoomTypes() as $roomType) {
-            if (count($roomType->getAvailableRoomsForPeriod($start, $end)) > 0) {
-                $res[] = $roomType;
+            if ($roomType->getCapacity() >= $people) {
+                if (count($roomType->getAvailableRoomsForPeriod($start, $end)) > 0) {
+                    $res[] = $roomType;
+                }
             }
         }
 

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservez vos billets pour Disneyland Paris{% endblock %}
+
+{% block body %}
+<div class="page-title">
+    <h1>Nos billets parcs</h1>
+</div>
+
+<div class="content-switcher">
+    <p>1 Parc</p>
+    <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+    </label>
+    <p>2 Parcs</p>
+</div>
+
+<div id="main_content" class="tickets">
+    {% for ticket in tickets_two %}
+        <a href="/ticketing/order-tickets?id={{ ticket.id }}"  class="ticket">
+            <div class="ticket-days">
+                <p>{{ ticket.getNbDays() }}</p>
+                <p class="days">jour{% if ticket.getNbDays() > 1 %}s{% endif %}</p>
+            </div>
+            <p>{{ ticket.getPrice() }}€</p>
+            <p class="by-person text-center">Par personne / jour</p>
+        </a>
+    {% endfor %}
+</div>
+<div id="secondary_content" class="tickets">
+    {% for ticket in tickets_one %}
+        <a href="/ticketing/order-tickets?id={{ ticket.id }}"  class="ticket">
+            <div class="ticket-days">
+                <p>{{ ticket.getNbDays() }}</p>
+                <p class="days">jour{% if ticket.getNbDays() > 1 %}s{% endif %}</p>
+            </div>
+            <p>{{ ticket.getPrice() }}€</p>
+            <p class="by-person text-center">Par personne / jour</p>
+        </a>
+    {% endfor %}
+    {% if tickets_one|length < 4 %}
+        {% for i in range(4 - (tickets_one|length - 4)|abs + 1, (tickets_one|length - 4)|abs + 1) %}
+            <div class="ticket ticket-nosale">
+                <div class="ticket-days">
+                    <p>{{ i }}</p>
+                    <p class="days">jour{% if i > 1 %}s{% endif %}</p>
+                </div>
+                <p><br/></p>
+                <p class="by-person text-center">Avec 2 parcs</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<script>
+    let mainContent = document.querySelector('#main_content');
+    let secondaryContent = document.querySelector('#secondary_content');
+
+    document.querySelector('.content-switcher .switch>input').addEventListener('change', e => {
+        mainContent.setAttribute("style", "display: " + (e.target.checked ? 'flex' : 'none'));
+        secondaryContent.setAttribute("style", "display: " + (e.target.checked ? 'none' : 'flex'));
+    });
+</script>
+{% endblock %}

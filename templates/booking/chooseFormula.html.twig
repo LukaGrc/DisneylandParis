@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservez votre séjour à Disneyland Paris | Choix de la formule{% endblock %}
+
+{% block body %}
+
+<div class="page-title">
+    <h1>Choisissez votre formule</h1>
+    <p class="spaced">Pour {{ people }} personnes du {{ arrival|format_datetime(locale='fr',pattern="dd MMMM YYYY") }} au {{ departure|format_datetime(locale='fr',pattern="dd MMMM YYYY") }}
+        <br/>
+        <a href="/booking?people={{ people }}&arrival={{ arrival }}&departure={{ departure }}">Modifier les paramètres</a>
+    </p>
+</div>
+
+<section id="choose-formula">
+    <div class="formula">
+        <div class="formula-img">
+            <img src="{% if roomType.image %}{{ roomType.image }}{% else %}/uploads/hotels/banner-all.jpg{% endif %}" alt="{{ roomType.name }} au {{ hotel.name }}">
+            <p>Montant total : {{ roomType.price * nights }} €</p>
+        </div>
+        <div class="formula-info">
+            <h2>Formule Hôtel</h2>
+            <p>{{ nights }} nuit{% if nights > 1 %}s{% endif %}<br/>Billets parc non-inclus</p>
+            <a href="/booking/choose-room?hotel={{ hotel.id }}&people={{ people }}&arrival={{ arrival }}&departure={{ departure }}" class="btn">Choisir</a>
+        </div>
+    </div>
+    <div class="formula">
+        <div class="formula-img">
+            <img src="{% if roomType.image %}{{ roomType.image }}{% else %}/uploads/pages/image-hotelparc.jpg{% endif %}" alt="{{ roomType.name }} au {{ hotel.name }}">
+            <p>Montant total : {{ roomType.price * nights }} €</p>
+        </div>
+        <div class="formula-info">
+            <h2>Formule Hôtel + Parc</h2>
+            <p>{{ nights }} nuit{% if nights > 1 %}s{% endif %} avec petit-déjeuner<br/>Billets parcs ({{ nights + 1 }} jours 2 parcs) pour {{ people }} personne{% if people > 1 %}s{% endif %}</p>
+            <a href="/booking/choose-room?hotel={{ hotel.id }}&people={{ people }}&arrival={{ arrival }}&departure={{ departure }}" class="btn">Choisir</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

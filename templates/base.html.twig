@@ -44,7 +44,7 @@
                                 <li><a href="/destinations">Nos parcs</a></li>
                                 <li><a href="/hotels">Hôtels</a></li>
                                 <li><a href="/restaurants">Restaurants</a></li>
-                                <li><a href="/billetterie">Billetterie</a></li>
+                                <li><a href="/ticketing">Billetterie</a></li>
                             </ul>
                         </div>
                     </div>
@@ -57,7 +57,13 @@
             {% endif %}
         </header>
         <main>
-            {% block body %}{% endblock %}
+            {% block body %}
+            {% endblock %}
         </main>
+        <footer>
+            <div class="copyright-container">
+                <p class="copyright text-center">Nous appliquons des mesures d’hygiène et de sécurité renforcées à Disneyland Paris pour la sécurité de tous. Consultez le <a href="https://www.disneylandparis.com/fr-fr/mesures-sanitaires/">En savoir plus</a> avant votre venue.<br>© Disney • Pixar © &amp; TM Lucasfilm Ltd. © MARVEL. Tous droits réservés</p>
+            </div>
+        </footer>
     </body>
 </html>

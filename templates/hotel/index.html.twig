@@ -4,14 +4,29 @@
 
 {% block body %}
 
-<h1 class="page-title">Prolongez la magie jusque dans vos rêves</h1>
+<div class="page-title">
+    <h1>Prolongez la magie jusque dans vos rêves</h1>
+    <p class="spaced"></p>
+    <a class="btn btn-primary" href="/booking">Réserver votre séjour</a>
+</div>
 
-<ul>
-    {% for hotel in hotels %}
-        <li>
-            <a href="{{ path('app_hotel', {'slug': hotel.slug}) }}">{{ hotel.name }}</a>
-        </li>
-    {% endfor %}
-</ul>
+{% if hotels %}
+    <section id="hotels">
+        <div class="cards">
+            {% for hotel in hotels %}
+                <a href="/hotels/{{ hotel.slug }}" class="card" style="background-image: linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 100%),url({% if hotel.image %}{{ hotel.image }}{% else %}/images/default-bg.jpg{% endif %});">
+                    <h3>{{ hotel.name }}</h3>
+                    {% if hotel.stars %}
+                        <p>
+                            {% for i in range(1, hotel.stars) %}
+                                &#9733;
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+                </a>
+            {% endfor %}    
+        </div>
+    </section>
+{% endif %}
 
 {% endblock %}
