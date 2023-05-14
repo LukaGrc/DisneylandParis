@@ -766,7 +766,7 @@ section#hero-home, section#hero-page {
     display: flex;
 }
 
-.profile-row .profile-col {
+.profile-row .profile-col, .admin-row .admin-col {
     padding: 0 12px;
 }
 
@@ -778,15 +778,7 @@ section#hero-home, section#hero-page {
     width: 75%;
 }
 
-.profile-row .profile-col h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-top: 35px;
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-}
-
-.profile-row .profile-col .container {
+.profile-row .profile-col .container, .admin-row .admin-col .container {
     padding: 0px;
     margin-top: 32px;
     border-radius: 12px;
@@ -795,24 +787,29 @@ section#hero-home, section#hero-page {
     overflow: hidden;
 }
 
-.profile-row .profile-col .container .menu-list {
+.profile-row .profile-col .container ul, .admin-row .admin-col .container ul {
     background-color: #fff;
     margin: 0px;
     padding: 0;
+    margin: 10px 0px;
 }
 
-.profile-row .profile-col .container .menu-list.middle {
-    margin: 20px 0px;
+.profile-row .profile-col .container ul:first-child, .admin-row .admin-col .container ul:first-child {
+    margin: 0px 0px 10px;
 }
 
-.profile-row .profile-col .container .menu-list li {
+.profile-row .profile-col .container ul:last-child, .admin-row .admin-col .container ul:last-child {
+    margin: 10px 0px 0px;
+}
+
+.profile-row .profile-col .container .menu-list li, .admin-row .admin-col .container .menu-list li {
     display: flex;
     flex-direction: row;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
 
-.profile-row .profile-col .container .menu-list li a {
+.profile-row .profile-col .container .menu-list li a, .admin-row .admin-col .container .menu-list li a {
     transition: all 0.2s ease 0s;
     padding: 4px 8px;
     display: flex;
@@ -825,7 +822,7 @@ section#hero-home, section#hero-page {
     color: #253050;
 }
 
-.profile-row .profile-col .container .menu-list li a.active {
+.profile-row .profile-col .container .menu-list li a.active, .admin-row .admin-col .container .menu-list li a.active {
     background-image: linear-gradient(to right, rgb(0, 51, 204) 50%, transparent 50%);
     background-repeat: no-repeat;
     background-position: calc(100% + 4px) 0px;
@@ -833,7 +830,7 @@ section#hero-home, section#hero-page {
     color: rgb(0, 51, 204);
 }
 
-.profile-row .profile-col .container .menu-list li a div {
+.profile-row .profile-col .container .menu-list li a div, .admin-row .admin-col .container .menu-list li a div {
     display: flex;
     font-weight: 600;
     flex-direction: row;
@@ -845,7 +842,7 @@ section#hero-home, section#hero-page {
     padding: 8px;
 }
 
-.profile-row .profile-col .container .menu-list li a div:hover {
+.profile-row .profile-col .container .menu-list li a div:hover, .admin-row .admin-col .container .menu-list li a div:hover {
     background-color: rgb(229, 236, 253);
 }
 
